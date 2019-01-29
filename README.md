@@ -40,4 +40,5 @@
 
 ## Contributors
 [Karin Ohman](https://github.com/kaohman)
+
 [Travis Gee](https://github.com/geet084)
