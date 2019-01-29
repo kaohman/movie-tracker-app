@@ -3,13 +3,17 @@ export const updatePageToDisplay = (page) => ({
   page,
 });
 
-export const updateUser = ({ email, password }) => ({
+export const updateUser = (user) => ({
   type: 'UPDATE_USER',
-  email,
-  password,
+  user,
 });
 
 export const toggleFavorite = (id) => ({
   type: 'TOGGLE_FAVORITE',
   id,
 });
+
+export const getMovies = (movies) => ({
+  type: 'GET_MOVIES',
+  movies,
+})
