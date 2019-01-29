@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import '../../normalize.css';
+import '../../main.scss';
+import './styles/main.scss';
 // import { apiKey } from './api-key';
 
 class App extends Component {
