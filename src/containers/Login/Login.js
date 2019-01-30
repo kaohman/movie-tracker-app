@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import SignUp from '../SignUp';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   constructor() {
@@ -48,9 +47,7 @@ class Login extends Component {
           </label>
           <input type="submit"/>
         </form>
-
-        <Link to='/signup'>sign up page</Link>
-        <Route path='/signup' component={SignUp}/>
+        <Link to='/signup'>Sign Up Here</Link>
       </div>
     )
   }

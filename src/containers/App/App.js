@@ -7,7 +7,8 @@ import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies'
 import Login from '../Login/Login'
-import { Route, NavLink, withRouter } from 'react-router-dom'
+import { Route, NavLink, withRouter } from 'react-router-dom';
+import SignUp from '../SignUp/SignUp';
 
 class App extends Component {
 
@@ -28,14 +29,13 @@ class App extends Component {
           <NavLink to="/favorites">Favorites</NavLink>
           <NavLink to="/login">User Login</NavLink>
         </header>
-
         <Route exact path='/' component={Movies} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={SignUp} />
       </div>
     );
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => ({
   getMovies: (movies) => dispatch(getMovies(movies)),

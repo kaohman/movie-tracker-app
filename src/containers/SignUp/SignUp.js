@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
+import API from '../../utils/api';
 
 class SignUp extends Component {
   constructor() {
@@ -13,6 +14,13 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    if (!Object.values(this.state).includes('')) {
+      try {
+        API.postData(this.state, '/api/users/new');
+      } catch (error) {
+        throw Error(`Error creating user: ${error.message}`);
+      }
+    }
   }
 
   handleChange = (e) => {
@@ -23,6 +31,7 @@ class SignUp extends Component {
   }
 
   render() {
+    const { name, email, password } = this.state;
     return (
       <div>
         <Link to='/'>HOME</Link>
