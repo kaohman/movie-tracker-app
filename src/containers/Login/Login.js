@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
+import SignUp from '../SignUp';
 
 class Login extends Component {
   constructor() {
     super()
     this.state = {
-      name: '',
       email: '',
       password: '',
     }
@@ -16,7 +16,6 @@ class Login extends Component {
     
     
     this.setState({
-      name: '',
       email: '',
       password: ''
     })
@@ -28,18 +27,11 @@ class Login extends Component {
   }
 
   render() {
-    const {name, email, password} = this.state
+    const {email, password} = this.state
     return (
       <div>
         <Link to='/'>HOME</Link>
         <form onSubmit={this.handleSubmit}>
-          <label>Name
-            <input
-              onChange={this.handleChange}
-              name="name"
-              type="text"
-              value={name} />
-          </label>
           <label>Email
             <input
               onChange={this.handleChange}
@@ -57,7 +49,8 @@ class Login extends Component {
           <input type="submit"/>
         </form>
 
-        <Link to='/'>sign up page</Link>
+        <Link to='/signup'>sign up page</Link>
+        <Route path='/signup' component={SignUp}/>
       </div>
     )
   }
