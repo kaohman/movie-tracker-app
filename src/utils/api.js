@@ -7,6 +7,24 @@ const fetchData = async (url) => {
   }
 }
 
+const postData = async (user, url) => {
+  const root = 'localhost:3000'
+
+  try {
+    const response = await fetch(root + url, {
+      method: 'POST',
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    return response.json()
+  } catch (error) {
+    throw Error(`Error posting data: ${error.message}`);
+  }
+}
+
 export default {
-  fetchData
+  fetchData,
+  postData,
 }
