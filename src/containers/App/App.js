@@ -6,6 +6,7 @@ import { getMovies } from '../../actions';
 import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movie from '../Movie/Movie'
+import Nav from '../Nav/Nav'
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Movie Tracker</h1>
+        <Nav />
         {
           movies.length && 
           movies.map(movie => <Movie {...movie} key={movie.id} />)
