@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import { getMovies } from '../../actions';
 import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
-import Movie from '../Movie/Movie'
-import Nav from '../Nav/Nav'
+import Movies from '../Movies/Movies'
+import Login from '../Login/Login'
+import { Route, NavLink, withRouter } from 'react-router-dom'
 
 class App extends Component {
 
@@ -20,27 +21,24 @@ class App extends Component {
   }
 
   render() {
-    let { movies } = this.props;
-
     return (
       <div className="App">
-        <h1>Movie Tracker</h1>
-        <Nav />
-        {
-          movies.length && 
-          movies.map(movie => <Movie {...movie} key={movie.id} />)
-        }
+        <header>
+          <h1>Movie Tracker</h1>
+          <NavLink to="/favorites">Favorites</NavLink>
+          <NavLink to="/login">User Login</NavLink>
+        </header>
+
+        <Route exact path='/' component={Movies} />
+        <Route exact path='/login' component={Login} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {movies: state.movies, }
-}
 
 const mapDispatchToProps = (dispatch) => ({
   getMovies: (movies) => dispatch(getMovies(movies)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));
