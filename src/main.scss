@@ -1,8 +1,8 @@
-@import './components/Loading/';
-@import './components/SignUp/';
-@import './containers/Login/';
-@import './containers/Nav/';
-@import './containers/Movies/';
-@import './components/MovieDetails/';
-@import './components/Movie/';
-@import './components/App/';
+@import './components/Loading/Loading.scss';
+@import './components/SignUp/SignUp.scss';
+@import './containers/Login/Login.scss';
+@import './containers/Nav/Nav.scss';
+@import './containers/Movies/Movies.scss';
+// @import './components/MovieDetails/MovieDetails.scss';
+@import './containers/Movie/Movie.scss';
+@import './containers/App/App.scss';
