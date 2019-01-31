@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import API from '../../utils/api';
-import InputFields from '../../components/InputFields/InputFields'
+import helpers from '../../utils/helpers'
+import buildInput from '../../utils/helpers';
 
 class SignUp extends Component {
   constructor() {
@@ -49,14 +50,9 @@ class SignUp extends Component {
   }
 
   render() {
-    const inputFields = Object.keys(this.state.user).map(field => {
-      return <InputFields
-          key={field}
-          type={field}
-          value={this.state.user[field]}
-          handleChange={this.handleChange} />
-    })
-
+    const { user, response } = this.state
+    const inputFields = Object.keys(user).map(field => buildInput(field, user[field], this.handleChange))
+    
     return (
       <div>
         <Link to='/'>HOME</Link>
@@ -64,7 +60,7 @@ class SignUp extends Component {
           {inputFields}
           <input type="submit" />
         </form>
-        <h3>{this.state.response}</h3>
+        <h3>{response}</h3>
       </div>
     )
   }

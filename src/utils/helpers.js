@@ -1,6 +1,6 @@
 import React from 'react'
 
-const buildInputField = ({ type, value, handleChange }) => {
+const buildInput = (type, value, handleChange) => {
   return (
     <label key={type}>{type}
       <input
@@ -13,4 +13,4 @@ const buildInputField = ({ type, value, handleChange }) => {
   )
 }
 
-export default buildInputField
+export default buildInput
