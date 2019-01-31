@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import API from '../../utils/api';
+import buildInput from '../../utils/helpers';
 
 class SignUp extends Component {
   constructor() {
@@ -15,23 +16,24 @@ class SignUp extends Component {
     }
   }
 
-  handleResponse = (response) => {
-    const message = response.message ? response.message : 'User already created'
-    this.setState({
-      response: message
-    });
-  }
-
   handleSubmit = async (e) => {
     e.preventDefault();
-    if (!Object.values(this.state.user).includes('')) {
-      try {
-        const response = await API.postData(this.state.user, '/api/users/new');
-        await this.handleResponse(response);
-      } catch (error) {
-        throw Error(`Error creating user: ${error.message}`);
-      }
+    let message;
+    try {
+      const response = await API.postData(this.state.user, '/api/users/new');
+      message = response.message ? response.message : 'User already created'
+    } catch (error) {
+      throw Error(`Error creating user: ${error.message}`);
     }
+
+    this.setState({
+      user: {
+        name: '',
+        email: '',
+        password: '',
+      }, 
+      response: message,
+    })
   }
 
   handleChange = (e) => {
@@ -42,35 +44,16 @@ class SignUp extends Component {
   }
 
   render() {
-    const { name, email, password } = this.state.user;
+    const { user, response } = this.state
+    const inputFields = Object.keys(user).map(field => buildInput(field, user[field], this.handleChange))
     return (
       <div>
         <Link to='/'>HOME</Link>
         <form onSubmit={this.handleSubmit}>
-          <label>User Name
-            <input
-              onChange={this.handleChange}
-              name="name"
-              type="name"
-              value={name} />
-          </label>
-          <label>Email
-            <input
-              onChange={this.handleChange}
-              name="email"
-              type="email"
-              value={email} />
-          </label>
-          <label>Password
-            <input
-              onChange={this.handleChange}
-              name="password"
-              type="password"
-              value={password} />
-          </label>
+          {inputFields}
           <input type="submit" />
         </form>
-        <h3>{this.state.response}</h3>
+        <h3>{response}</h3>
       </div>
     )
   }
