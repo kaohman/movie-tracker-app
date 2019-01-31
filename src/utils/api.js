@@ -24,6 +24,6 @@ const postData = async (user, url) => {
 }
 
 export default {
-  fetchMovieData,
+  fetchData,
   postData,
 }
