@@ -6,17 +6,28 @@ class SignUp extends Component {
   constructor() {
     super();
     this.state = {
-      name: '',
-      email: '',
-      password: '',
+      user: {
+        name: '',
+        email: '',
+        password: '',
+      },
+      response: ''
     }
   }
 
-  handleSubmit = (e) => {
+  handleResponse = (response) => {
+    const message = response.message ? response.message : 'User already created'
+    this.setState({
+      response: message
+    });
+  }
+
+  handleSubmit = async (e) => {
     e.preventDefault();
-    if (!Object.values(this.state).includes('')) {
+    if (!Object.values(this.state.user).includes('')) {
       try {
-        API.postData(this.state, '/api/users/new');
+        const response = await API.postData(this.state.user, '/api/users/new');
+        await this.handleResponse(response);
       } catch (error) {
         throw Error(`Error creating user: ${error.message}`);
       }
@@ -26,12 +37,12 @@ class SignUp extends Component {
   handleChange = (e) => {
     let { name, value } = e.target;
     this.setState({
-      [name]: value
+      user: {...this.state.user, [name]: value}
     });
   }
 
   render() {
-    const { name, email, password } = this.state;
+    const { name, email, password } = this.state.user;
     return (
       <div>
         <Link to='/'>HOME</Link>
@@ -59,6 +70,7 @@ class SignUp extends Component {
           </label>
           <input type="submit" />
         </form>
+        <h3>{this.state.response}</h3>
       </div>
     )
   }
