@@ -4,13 +4,7 @@ import { App, mapDispatchToProps } from './App';
 import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import { shallow } from 'enzyme';
-import { getMovies } from '../../actions';
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+import { setMovies } from '../../actions';
 
 describe('App', () => {
   describe('defaults', () => {
@@ -28,17 +22,17 @@ describe('App', () => {
   describe('componentDidMount', () => {
     let wrapper;
     let mockData;
-    let mockGetMovies;
+    let mockSetMovies;
 
     beforeEach(() => {
-      mockGetMovies = jest.fn();
+      mockSetMovies = jest.fn();
       mockData = { results: [{ name: 'AquaMan', id: 1 }, { name: 'Beauty and the Beast', id: 2 }] };
       API.fetchData = jest.fn().mockImplementation(() => {
         return mockData
       });
       wrapper = shallow(
       <App 
-        getMovies={mockGetMovies}
+        setMovies={mockSetMovies}
       />);
     });
 
@@ -48,19 +42,19 @@ describe('App', () => {
       expect(API.fetchData).toHaveBeenCalledWith(expected);
     });
 
-    it('should call getMovies with the correct parameters', async () => {
+    it('should call setMovies with the correct parameters', async () => {
       const expected = [{ name: 'AquaMan', id: 1 }, { name: 'Beauty and the Beast', id: 2 }];
       await wrapper.instance().componentDidMount();
-      expect(mockGetMovies).toHaveBeenCalledWith(expected);
+      expect(mockSetMovies).toHaveBeenCalledWith(expected);
     });
   });
 
   describe('mapDispatchToProps', () => {
     it('should call dispatch when using a function from mapDispatchToProps', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = getMovies([{ name: 'AquaMan', id: 1 }, { name: 'Beauty and the Beast', id: 2 }]);
+      const actionToDispatch = setMovies([{ name: 'AquaMan', id: 1 }, { name: 'Beauty and the Beast', id: 2 }]);
       const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.getMovies([{ name: 'AquaMan', id: 1 }, { name: 'Beauty and the Beast', id: 2 }]);
+      mappedProps.setMovies([{ name: 'AquaMan', id: 1 }, { name: 'Beauty and the Beast', id: 2 }]);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });

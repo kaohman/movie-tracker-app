@@ -15,6 +15,8 @@ describe('API', () => {
       expect(window.fetch).toHaveBeenCalledWith(expected);
     });
 
+    // happy path when ok data are returned
+
     it('should throw an error if everything is not okay', async () => {
       const expected = Error('Error fetching data: response.json is not a function');
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -46,6 +48,8 @@ describe('API', () => {
       API.postData(mockUser, url);
       expect(window.fetch).toHaveBeenCalledWith(expected[0], expected[1]);
     });
+
+    // happy path when ok data are returned
 
     it('should throw an error if everything is not okay', async () => {
       const expected = Error('Error posting data: response.json is not a function');

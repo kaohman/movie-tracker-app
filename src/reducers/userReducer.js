@@ -1,6 +1,6 @@
 export const userReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'UPDATE_USER':
+    case 'SET_CURRENT_USER':
       return action.user;
     case 'TOGGLE_FAVORITE':
       const { favorites } = state.user;
