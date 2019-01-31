@@ -16,18 +16,12 @@ class SignUp extends Component {
     }
   }
 
-  handleResponse = (response) => {
-    const message = response.message ? response.message : 'User already created'
-    this.setState({
-      response: message
-    });
-  }
-
   handleSubmit = async (e) => {
     e.preventDefault();
+    let message;
     try {
       const response = await API.postData(this.state.user, '/api/users/new');
-      await this.handleResponse(response);
+      message = response.message ? response.message : 'User already created'
     } catch (error) {
       throw Error(`Error creating user: ${error.message}`);
     }
@@ -37,7 +31,8 @@ class SignUp extends Component {
         name: '',
         email: '',
         password: '',
-      }
+      }, 
+      response: message,
     })
   }
 
