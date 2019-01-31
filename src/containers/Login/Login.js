@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/api';
-import InputFields from '../../components/InputFields/InputFields'
+import buildInput from '../../utils/helpers'
 
 class Login extends Component {
   constructor() {
@@ -33,13 +33,7 @@ class Login extends Component {
   }
   
   render() {
-    const inputFields = Object.keys(this.state).map(field => {
-      return <InputFields
-        key={field}
-        type={field}
-        value={this.state[field]}
-        handleChange={this.handleChange} />
-    })
+    const inputFields = Object.keys(this.state).map(field => buildInput(field, this.handleChange))
 
     return (
       <div>
