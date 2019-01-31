@@ -10,8 +10,8 @@ import Login from '../Login/Login'
 import { Route, NavLink, withRouter } from 'react-router-dom';
 import SignUp from '../SignUp/SignUp';
 
-class App extends Component {
-
+export class App extends Component {
+  
   componentDidMount = async () => {
     const initialCategory = 'popular'
     const root = `https://api.themoviedb.org/3/movie/${initialCategory}`
@@ -37,7 +37,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   getMovies: (movies) => dispatch(getMovies(movies)),
 })
 
