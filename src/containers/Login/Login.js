@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/api';
+import buildInput from '../../utils/helpers'
 
 class Login extends Component {
   constructor() {
@@ -30,27 +31,15 @@ class Login extends Component {
     let { name, value } = e.target;
     this.setState({ [name]: value })
   }
-
+  
   render() {
-    const {email, password} = this.state
+    const inputFields = Object.keys(this.state).map(field => buildInput(field, this.handleChange))
+
     return (
       <div>
         <Link to='/'>HOME</Link>
         <form onSubmit={this.handleSubmit}>
-          <label>Email
-            <input
-              onChange={this.handleChange}
-              name="email"
-              type="email"
-              value={email} />
-          </label>
-          <label>Password
-            <input
-              onChange={this.handleChange}
-              name="password"
-              type="password"
-              value={password} />
-          </label>
+          {inputFields}
           <input type="submit"/>
         </form>
         <Link to='/signup'>Sign Up Here</Link>
