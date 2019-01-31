@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import API from '../../utils/api';
 
 class Login extends Component {
   constructor() {
@@ -10,9 +11,14 @@ class Login extends Component {
     }
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await API.postData(this.state, '/api/users');
+      await console.log(response);
+    } catch (error) {
+      throw Error(`Error logging in user: ${error.message}`)
+    }
     
     this.setState({
       email: '',

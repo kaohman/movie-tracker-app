@@ -8,7 +8,7 @@ const fetchData = async (url) => {
 }
 
 const postData = async (user, url) => {
-  const root = 'http://localhost:3000'
+  const root = 'http://localhost:3000';
   try {
     const response = await fetch(root + url, {
       method: 'POST',
@@ -24,6 +24,6 @@ const postData = async (user, url) => {
 }
 
 export default {
-  fetchData,
+  fetchMovieData,
   postData,
 }
