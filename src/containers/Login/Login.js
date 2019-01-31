@@ -19,6 +19,7 @@ class Login extends Component {
       await console.log(response);
     } catch (error) {
       throw Error(`Error logging in user: ${error.message}`)
+      // dispatch to redux state
     }
     
     this.setState({

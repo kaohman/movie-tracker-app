@@ -1,10 +1,5 @@
-export const updatePageToDisplay = (page) => ({
-  type: 'UPDATE_PAGE_TO_DISPLAY',
-  page,
-});
-
-export const updateUser = (user) => ({
-  type: 'UPDATE_USER',
+export const setCurrentUser = (user) => ({
+  type: 'SET_CURRENT_USER',
   user,
 });
 
@@ -13,7 +8,10 @@ export const toggleFavorite = (id) => ({
   id,
 });
 
-export const getMovies = (movies) => ({
-  type: 'GET_MOVIES',
+export const setMovies = (movies) => ({
+  type: 'SET_MOVIES',
   movies,
-})
+});
+
+// is loading in state tree, starts as true
+// error to display
