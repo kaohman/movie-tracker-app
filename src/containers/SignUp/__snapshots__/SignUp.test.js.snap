@@ -28,21 +28,33 @@ ShallowWrapper {
         <form
           onSubmit={[Function]}
         >
-          <buildInputField
-            handleChange={[Function]}
-            type="name"
-            value=""
-          />
-          <buildInputField
-            handleChange={[Function]}
-            type="email"
-            value=""
-          />
-          <buildInputField
-            handleChange={[Function]}
-            type="password"
-            value=""
-          />
+          <label>
+            name
+            <input
+              name="name"
+              onChange={[Function]}
+              required={true}
+              type="name"
+            />
+          </label>
+          <label>
+            email
+            <input
+              name="email"
+              onChange={[Function]}
+              required={true}
+              type="email"
+            />
+          </label>
+          <label>
+            password
+            <input
+              name="password"
+              onChange={[Function]}
+              required={true}
+              type="password"
+            />
+          </label>
           <input
             type="submit"
           />
@@ -74,21 +86,33 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             Array [
-              <buildInputField
-                handleChange={[Function]}
-                type="name"
-                value=""
-              />,
-              <buildInputField
-                handleChange={[Function]}
-                type="email"
-                value=""
-              />,
-              <buildInputField
-                handleChange={[Function]}
-                type="password"
-                value=""
-              />,
+              <label>
+                name
+                <input
+                  name="name"
+                  onChange={[Function]}
+                  required={true}
+                  type="name"
+                />
+              </label>,
+              <label>
+                email
+                <input
+                  name="email"
+                  onChange={[Function]}
+                  required={true}
+                  type="email"
+                />
+              </label>,
+              <label>
+                password
+                <input
+                  name="password"
+                  onChange={[Function]}
+                  required={true}
+                  type="password"
+                />
+              </label>,
             ],
             <input
               type="submit"
@@ -101,41 +125,110 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "name",
-            "nodeType": "function",
+            "nodeType": "host",
             "props": Object {
-              "handleChange": [Function],
-              "type": "name",
-              "value": "",
+              "children": Array [
+                "name",
+                <input
+                  name="name"
+                  onChange={[Function]}
+                  required={true}
+                  type="name"
+                />,
+              ],
             },
             "ref": null,
-            "rendered": null,
-            "type": [Function],
+            "rendered": Array [
+              "name",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "name": "name",
+                  "onChange": [Function],
+                  "required": true,
+                  "type": "name",
+                  "value": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+            ],
+            "type": "label",
           },
           Object {
             "instance": null,
             "key": "email",
-            "nodeType": "function",
+            "nodeType": "host",
             "props": Object {
-              "handleChange": [Function],
-              "type": "email",
-              "value": "",
+              "children": Array [
+                "email",
+                <input
+                  name="email"
+                  onChange={[Function]}
+                  required={true}
+                  type="email"
+                />,
+              ],
             },
             "ref": null,
-            "rendered": null,
-            "type": [Function],
+            "rendered": Array [
+              "email",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "name": "email",
+                  "onChange": [Function],
+                  "required": true,
+                  "type": "email",
+                  "value": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+            ],
+            "type": "label",
           },
           Object {
             "instance": null,
             "key": "password",
-            "nodeType": "function",
+            "nodeType": "host",
             "props": Object {
-              "handleChange": [Function],
-              "type": "password",
-              "value": "",
+              "children": Array [
+                "password",
+                <input
+                  name="password"
+                  onChange={[Function]}
+                  required={true}
+                  type="password"
+                />,
+              ],
             },
             "ref": null,
-            "rendered": null,
-            "type": [Function],
+            "rendered": Array [
+              "password",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "name": "password",
+                  "onChange": [Function],
+                  "required": true,
+                  "type": "password",
+                  "value": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+            ],
+            "type": "label",
           },
           Object {
             "instance": null,
@@ -181,21 +274,33 @@ ShallowWrapper {
           <form
             onSubmit={[Function]}
           >
-            <buildInputField
-              handleChange={[Function]}
-              type="name"
-              value=""
-            />
-            <buildInputField
-              handleChange={[Function]}
-              type="email"
-              value=""
-            />
-            <buildInputField
-              handleChange={[Function]}
-              type="password"
-              value=""
-            />
+            <label>
+              name
+              <input
+                name="name"
+                onChange={[Function]}
+                required={true}
+                type="name"
+              />
+            </label>
+            <label>
+              email
+              <input
+                name="email"
+                onChange={[Function]}
+                required={true}
+                type="email"
+              />
+            </label>
+            <label>
+              password
+              <input
+                name="password"
+                onChange={[Function]}
+                required={true}
+                type="password"
+              />
+            </label>
             <input
               type="submit"
             />
@@ -227,21 +332,33 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               Array [
-                <buildInputField
-                  handleChange={[Function]}
-                  type="name"
-                  value=""
-                />,
-                <buildInputField
-                  handleChange={[Function]}
-                  type="email"
-                  value=""
-                />,
-                <buildInputField
-                  handleChange={[Function]}
-                  type="password"
-                  value=""
-                />,
+                <label>
+                  name
+                  <input
+                    name="name"
+                    onChange={[Function]}
+                    required={true}
+                    type="name"
+                  />
+                </label>,
+                <label>
+                  email
+                  <input
+                    name="email"
+                    onChange={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                </label>,
+                <label>
+                  password
+                  <input
+                    name="password"
+                    onChange={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                </label>,
               ],
               <input
                 type="submit"
@@ -254,41 +371,110 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "name",
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "handleChange": [Function],
-                "type": "name",
-                "value": "",
+                "children": Array [
+                  "name",
+                  <input
+                    name="name"
+                    onChange={[Function]}
+                    required={true}
+                    type="name"
+                  />,
+                ],
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Array [
+                "name",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "name": "name",
+                    "onChange": [Function],
+                    "required": true,
+                    "type": "name",
+                    "value": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+              ],
+              "type": "label",
             },
             Object {
               "instance": null,
               "key": "email",
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "handleChange": [Function],
-                "type": "email",
-                "value": "",
+                "children": Array [
+                  "email",
+                  <input
+                    name="email"
+                    onChange={[Function]}
+                    required={true}
+                    type="email"
+                  />,
+                ],
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Array [
+                "email",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "name": "email",
+                    "onChange": [Function],
+                    "required": true,
+                    "type": "email",
+                    "value": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+              ],
+              "type": "label",
             },
             Object {
               "instance": null,
               "key": "password",
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "handleChange": [Function],
-                "type": "password",
-                "value": "",
+                "children": Array [
+                  "password",
+                  <input
+                    name="password"
+                    onChange={[Function]}
+                    required={true}
+                    type="password"
+                  />,
+                ],
               },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Array [
+                "password",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "name": "password",
+                    "onChange": [Function],
+                    "required": true,
+                    "type": "password",
+                    "value": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+              ],
+              "type": "label",
             },
             Object {
               "instance": null,

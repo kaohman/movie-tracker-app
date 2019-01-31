@@ -13,5 +13,12 @@ export const setMovies = (movies) => ({
   movies,
 });
 
-// is loading in state tree, starts as true
-// error to display
+export const errorToDisplay = (message) => ({
+  type: 'ERROR_TO_DISPLAY',
+  message,
+})
+
+export const isLoading = (status) => ({
+  type: 'IS_LOADING',
+  status,
+})

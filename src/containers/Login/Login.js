@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/api';
-import buildInput from '../../utils/helpers'
+import buildInput from '../../utils/helpers';
+import { setCurrentUser, errorToDisplay } from '../../actions';
+import { connect } from 'react-redux';
 
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super()
     this.state = {
@@ -13,13 +15,14 @@ class Login extends Component {
   }
 
   handleSubmit = async (e) => {
+    const { errorToDisplay, setCurrentUser } = this.props
     e.preventDefault();
     try {
       const response = await API.postData(this.state, '/api/users');
-      await console.log(response);
+      await console.log(response)
+      await setCurrentUser(response)
     } catch (error) {
-      throw Error(`Error logging in user: ${error.message}`)
-      // dispatch to redux state
+      errorToDisplay(error)
     }
     
     this.setState({
@@ -49,4 +52,9 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  errorToDisplay: (message) => dispatch(errorToDisplay(message)),
+})
+
+export default connect(null, mapDispatchToProps)(Login);
