@@ -9,44 +9,50 @@ export class Login extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
-      password: '',
+      user: {
+        email: '',
+        password: ''
+      },
+      response: '',
     }
   }
 
   handleSubmit = async (e) => {
     const { errorToDisplay, setCurrentUser } = this.props
-    const { email, password } = this.state
     e.preventDefault();
+    let message = '';
+
     try {
-      const response = await API.postData({email, password}, '');
-      await console.log(response)
-      await setCurrentUser(response)
+      const response = await API.postData(this.state.user, '');
+      
+      await setCurrentUser(response.data)
     } catch (error) {
+      message = 'User does not exist, please try again or sign up'
       errorToDisplay(error)
     }
     
-    this.setState({
-      email: '',
-      password: ''
-    })
+    await this.setState({
+      user: { email: '', password: '' },
+      response: message,
+    }, this.formRef.reset())
   }
 
   handleChange = (e) => {
     let { name, value } = e.target;
-    this.setState({ [name]: value })
+    this.setState({user: {...this.state.user, [name]: value }})
   }
   
   render() {
-    const inputFields = Object.keys(this.state).map(field => buildInput(field, this.handleChange))
-
+    const { user, response } = this.state;
+    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
     return (
       <div>
         <Link to='/'>HOME</Link>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
           {inputFields}
           <input type="submit"/>
         </form>
+        <h3>{response}</h3>
         <Link to='/signup'>Sign Up Here</Link>
       </div>
     )

@@ -1,14 +1,13 @@
 import React from 'react'
 
-const buildInput = (type, value, handleChange) => {
+const buildInput = (type, handleChange) => {
   return (
     <label key={type}>{type}
       <input
         required
         name={type}
         type={type}
-        onChange={handleChange}
-        value={value[type]} />
+        onChange={handleChange} />
     </label>
   )
 }

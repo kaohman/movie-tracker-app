@@ -45,7 +45,7 @@ class SignUp extends Component {
 
   render() {
     const { user, response } = this.state
-    const inputFields = Object.keys(user).map(field => buildInput(field, user[field], this.handleChange))
+    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
     return (
       <div>
         <Link to='/'>HOME</Link>

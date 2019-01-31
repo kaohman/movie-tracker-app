@@ -7,8 +7,8 @@ const fetchData = async (url) => {
   }
 }
 
-const postData = async (user, root) => {
-  const url = `http://localhost:3000/api/users${root}`;
+const postData = async (user, suffix) => {
+  const url = `http://localhost:3000/api/users${suffix}`;
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify(user),
@@ -16,7 +16,7 @@ const postData = async (user, root) => {
       'Content-type': 'application/json'
     }
   })
-  console.log(response)
+  
   if (response.ok) {
     return await response.json()
   } else {
