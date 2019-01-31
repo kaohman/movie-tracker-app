@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
 import { setCurrentUser, errorToDisplay } from '../../actions';
@@ -14,27 +14,27 @@ export class Login extends Component {
         password: ''
       },
       response: '',
+      isLoggedIn: false,
     }
   }
 
   handleSubmit = async (e) => {
     const { errorToDisplay, setCurrentUser } = this.props
     e.preventDefault();
-    let message = '';
 
     try {
       const response = await API.postData(this.state.user, '');
       
       await setCurrentUser(response.data)
+      await this.setState({isLoggedIn: true})
     } catch (error) {
-      message = 'User does not exist, please try again or sign up'
+      this.formRef.reset()
       errorToDisplay(error)
+      await this.setState({
+        user: { email: '', password: '' },
+        response: 'User does not exist, please try again or sign up',
+      })
     }
-    
-    await this.setState({
-      user: { email: '', password: '' },
-      response: message,
-    }, this.formRef.reset())
   }
 
   handleChange = (e) => {
@@ -43,19 +43,23 @@ export class Login extends Component {
   }
   
   render() {
-    const { user, response } = this.state;
-    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
-    return (
-      <div>
-        <Link to='/'>HOME</Link>
-        <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
-          {inputFields}
-          <input type="submit"/>
-        </form>
-        <h3>{response}</h3>
-        <Link to='/signup'>Sign Up Here</Link>
-      </div>
-    )
+    const { isLoggedIn, response, user } = this.state;
+    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))  
+    if (isLoggedIn) {
+      return <Redirect to='/' />
+    } else {
+      return (
+        <div>
+          <Link to='/'>HOME</Link>
+          <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
+            {inputFields}
+            <input type="submit"/>
+          </form>
+          <h3>{response}</h3>
+          <Link to='/signup'>Sign Up Here</Link>
+        </div>
+      )
+    }
   }
 }
 

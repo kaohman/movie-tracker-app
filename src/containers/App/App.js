@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../normalize.css';
 import '../../main.scss';
 import { connect } from 'react-redux';
-import { setMovies, errorToDisplay } from '../../actions';
+import { setMovies, errorToDisplay, setCurrentUser } from '../../actions';
 import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies'
@@ -25,13 +25,21 @@ export class App extends Component {
     }
   }
 
+  signOut = () => {
+    this.props.setCurrentUser({})
+  }
+
   render() {
     return (
       <div className="App">
         <header>
           <h1>Movie Tracker</h1>
           <NavLink to="/favorites">Favorites</NavLink>
-          <NavLink to="/login">User Login</NavLink>
+          {
+            this.props.user.name ?
+              <button onClick={this.signOut}>signout</button> :
+              <NavLink to="/login">User Login</NavLink>
+          }
         </header>
         <Route exact path='/' component={Movies} />
         <Route exact path='/login' component={Login} />
@@ -41,9 +49,14 @@ export class App extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
 export const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(setMovies(movies)),
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   errorToDisplay: (message) => dispatch(errorToDisplay(message)),
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
