@@ -1,52 +1,67 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/api';
-import buildInput from '../../utils/helpers'
+import buildInput from '../../utils/helpers';
+import { setCurrentUser, errorToDisplay } from '../../actions';
+import { connect } from 'react-redux';
 
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
-      password: '',
+      user: {
+        email: '',
+        password: ''
+      },
+      response: '',
     }
   }
 
   handleSubmit = async (e) => {
+    const { errorToDisplay, setCurrentUser } = this.props
     e.preventDefault();
+    let message = '';
+
     try {
-      const response = await API.postData(this.state, '/api/users');
-      await console.log(response);
+      const response = await API.postData(this.state.user, '');
+      
+      await setCurrentUser(response.data)
     } catch (error) {
-      throw Error(`Error logging in user: ${error.message}`)
-      // dispatch to redux state
+      message = 'User does not exist, please try again or sign up'
+      errorToDisplay(error)
     }
     
-    this.setState({
-      email: '',
-      password: ''
-    })
+    await this.setState({
+      user: { email: '', password: '' },
+      response: message,
+    }, this.formRef.reset())
   }
 
   handleChange = (e) => {
     let { name, value } = e.target;
-    this.setState({ [name]: value })
+    this.setState({user: {...this.state.user, [name]: value }})
   }
   
   render() {
-    const inputFields = Object.keys(this.state).map(field => buildInput(field, this.handleChange))
-
+    const { user, response } = this.state;
+    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
     return (
       <div>
         <Link to='/'>HOME</Link>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
           {inputFields}
           <input type="submit"/>
         </form>
+        <h3>{response}</h3>
         <Link to='/signup'>Sign Up Here</Link>
       </div>
     )
   }
 }
 
-export default Login;
+export const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  errorToDisplay: (message) => dispatch(errorToDisplay(message)),
+})
+
+export default connect(null, mapDispatchToProps)(Login);

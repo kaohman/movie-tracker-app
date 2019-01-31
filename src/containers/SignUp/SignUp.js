@@ -20,7 +20,7 @@ class SignUp extends Component {
     e.preventDefault();
     let message;
     try {
-      const response = await API.postData(this.state.user, '/api/users/new');
+      const response = await API.postData(this.state.user, '/new');
       message = response.message ? response.message : 'User already created'
     } catch (error) {
       throw Error(`Error creating user: ${error.message}`);
@@ -45,7 +45,7 @@ class SignUp extends Component {
 
   render() {
     const { user, response } = this.state
-    const inputFields = Object.keys(user).map(field => buildInput(field, user[field], this.handleChange))
+    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
     return (
       <div>
         <Link to='/'>HOME</Link>

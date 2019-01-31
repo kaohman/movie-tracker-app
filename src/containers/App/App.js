@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../normalize.css';
 import '../../main.scss';
 import { connect } from 'react-redux';
-import { setMovies } from '../../actions';
+import { setMovies, errorToDisplay } from '../../actions';
 import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies'
@@ -13,11 +13,16 @@ import SignUp from '../SignUp/SignUp';
 export class App extends Component {
   
   componentDidMount = async () => {
+    const { errorToDisplay, setMovies } = this.props
     const initialCategory = 'popular'
     const root = `https://api.themoviedb.org/3/movie/${initialCategory}`
     const url = `${root}?page=1&api_key=${apiKey}&language=en-US`
-    const movies = await API.fetchData(url);
-    await this.props.setMovies(movies.results);
+    try {
+      const movies = await API.fetchData(url);
+      await setMovies(movies.results);
+    } catch (error) {
+      errorToDisplay(error)
+    }
   }
 
   render() {
@@ -38,6 +43,7 @@ export class App extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(setMovies(movies)),
+  errorToDisplay: (message) => dispatch(errorToDisplay(message)),
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(App));
