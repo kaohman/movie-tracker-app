@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup defaults should match snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SignUp />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          replace={false}
+          to="/"
+        >
+          HOME
+        </Link>,
+        <form
+          onSubmit={[Function]}
+        >
+          <buildInputField
+            handleChange={[Function]}
+            type="name"
+            value=""
+          />
+          <buildInputField
+            handleChange={[Function]}
+            type="email"
+            value=""
+          />
+          <buildInputField
+            handleChange={[Function]}
+            type="password"
+            value=""
+          />
+          <input
+            type="submit"
+          />
+        </form>,
+        <h3>
+          
+        </h3>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "HOME",
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": "HOME",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            Array [
+              <buildInputField
+                handleChange={[Function]}
+                type="name"
+                value=""
+              />,
+              <buildInputField
+                handleChange={[Function]}
+                type="email"
+                value=""
+              />,
+              <buildInputField
+                handleChange={[Function]}
+                type="password"
+                value=""
+              />,
+            ],
+            <input
+              type="submit"
+            />,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "name",
+            "nodeType": "function",
+            "props": Object {
+              "handleChange": [Function],
+              "type": "name",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "email",
+            "nodeType": "function",
+            "props": Object {
+              "handleChange": [Function],
+              "type": "email",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "password",
+            "nodeType": "function",
+            "props": Object {
+              "handleChange": [Function],
+              "type": "password",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "type": "submit",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "h3",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            replace={false}
+            to="/"
+          >
+            HOME
+          </Link>,
+          <form
+            onSubmit={[Function]}
+          >
+            <buildInputField
+              handleChange={[Function]}
+              type="name"
+              value=""
+            />
+            <buildInputField
+              handleChange={[Function]}
+              type="email"
+              value=""
+            />
+            <buildInputField
+              handleChange={[Function]}
+              type="password"
+              value=""
+            />
+            <input
+              type="submit"
+            />
+          </form>,
+          <h3>
+            
+          </h3>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "HOME",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "HOME",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              Array [
+                <buildInputField
+                  handleChange={[Function]}
+                  type="name"
+                  value=""
+                />,
+                <buildInputField
+                  handleChange={[Function]}
+                  type="email"
+                  value=""
+                />,
+                <buildInputField
+                  handleChange={[Function]}
+                  type="password"
+                  value=""
+                />,
+              ],
+              <input
+                type="submit"
+              />,
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "name",
+              "nodeType": "function",
+              "props": Object {
+                "handleChange": [Function],
+                "type": "name",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "email",
+              "nodeType": "function",
+              "props": Object {
+                "handleChange": [Function],
+                "type": "email",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "password",
+              "nodeType": "function",
+              "props": Object {
+                "handleChange": [Function],
+                "type": "password",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "type": "submit",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "h3",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
