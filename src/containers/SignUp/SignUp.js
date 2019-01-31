@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import API from '../../utils/api';
+import InputFields from '../../components/InputFields/InputFields'
 
 class SignUp extends Component {
   constructor() {
@@ -24,14 +25,20 @@ class SignUp extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    if (!Object.values(this.state.user).includes('')) {
-      try {
-        const response = await API.postData(this.state.user, '/api/users/new');
-        await this.handleResponse(response);
-      } catch (error) {
-        throw Error(`Error creating user: ${error.message}`);
-      }
+    try {
+      const response = await API.postData(this.state.user, '/api/users/new');
+      await this.handleResponse(response);
+    } catch (error) {
+      throw Error(`Error creating user: ${error.message}`);
     }
+
+    this.setState({
+      user: {
+        name: '',
+        email: '',
+        password: '',
+      }
+    })
   }
 
   handleChange = (e) => {
@@ -42,32 +49,19 @@ class SignUp extends Component {
   }
 
   render() {
-    const { name, email, password } = this.state.user;
+    const inputFields = Object.keys(this.state.user).map(field => {
+      return <InputFields
+          key={field}
+          type={field}
+          value={this.state.user[field]}
+          handleChange={this.handleChange} />
+    })
+
     return (
       <div>
         <Link to='/'>HOME</Link>
         <form onSubmit={this.handleSubmit}>
-          <label>User Name
-            <input
-              onChange={this.handleChange}
-              name="name"
-              type="name"
-              value={name} />
-          </label>
-          <label>Email
-            <input
-              onChange={this.handleChange}
-              name="email"
-              type="email"
-              value={email} />
-          </label>
-          <label>Password
-            <input
-              onChange={this.handleChange}
-              name="password"
-              type="password"
-              value={password} />
-          </label>
+          {inputFields}
           <input type="submit" />
         </form>
         <h3>{this.state.response}</h3>
