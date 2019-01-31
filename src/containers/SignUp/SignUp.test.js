@@ -4,15 +4,10 @@ import SignUp from './SignUp'
 import API from '../../utils/api'
 
 describe('Signup', () => {
-  let wrapper;
+  let wrapper = shallow( <SignUp /> )
+  const mockPreventDefault = { preventDefault: () => { } }
 
-  describe('defaults', () => {
-    beforeEach(() => {
-      wrapper = shallow(
-        <SignUp />
-      )
-    })
-    
+  describe('defaults', () => {    
     it('should match snapshot', () => {
 
       expect(wrapper).toMatchSnapshot();
@@ -45,7 +40,6 @@ describe('Signup', () => {
 
   describe('handleSubmit', () => {
     it('should sucessfully handle a new user signup', async () => {
-      const mockEvent = { preventDefault: () => { } }
       const mockData = {
         id: 1,
         message: "New user created",
@@ -56,13 +50,12 @@ describe('Signup', () => {
       })
       const expected = 'New user created'
 
-      await wrapper.instance().handleSubmit(mockEvent)
+      await wrapper.instance().handleSubmit(mockPreventDefault)
 
-       expect(wrapper.state('response')).toEqual(expected)
+      expect(wrapper.state('response')).toEqual(expected)
     })
 
     it('should sucessfully handle a duplicate user signup', async () => {
-      const mockEvent = { preventDefault: () => { } }
       const mockData = {
         error: "Key email already exists."
       }
@@ -71,13 +64,22 @@ describe('Signup', () => {
       })
       const expected = 'User already created'
 
-      await wrapper.instance().handleSubmit(mockEvent)
+      await wrapper.instance().handleSubmit(mockPreventDefault)
 
       expect(wrapper.state('response')).toEqual(expected)
     })
 
-    it.skip('should unsuccessfully handle user signup', () => {
+    it('should unsuccessfully handle user signup', async () => {
+      const expected = {"error": 'Key email already exists.'}
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 404,
+        ok: false,
+      }))
+      const url = '/api/users/new'
 
+      await wrapper.instance().handleSubmit(mockPreventDefault)
+
+      await expect(API.postData(url)).toEqual(expected)
     })
   })
 
