@@ -7,9 +7,9 @@ const fetchData = async (url) => {
   }
 }
 
-const postData = async (user, url) => {
-  const root = 'http://localhost:3000';
-  const response = await fetch(root + url, {
+const postData = async (user, root) => {
+  const url = `http://localhost:3000/api/users${root}`;
+  const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
@@ -18,7 +18,7 @@ const postData = async (user, url) => {
   })
   console.log(response)
   if (response.ok) {
-    return response.json()
+    return await response.json()
   } else {
     throw Error(`Error posting data: ${response.error.message}`);
   }

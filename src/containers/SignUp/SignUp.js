@@ -20,7 +20,7 @@ class SignUp extends Component {
     e.preventDefault();
     let message;
     try {
-      const response = await API.postData(this.state.user, '/api/users/new');
+      const response = await API.postData(this.state.user, '/new');
       message = response.message ? response.message : 'User already created'
     } catch (error) {
       throw Error(`Error creating user: ${error.message}`);

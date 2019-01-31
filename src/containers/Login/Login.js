@@ -16,9 +16,10 @@ export class Login extends Component {
 
   handleSubmit = async (e) => {
     const { errorToDisplay, setCurrentUser } = this.props
+    const { email, password } = this.state
     e.preventDefault();
     try {
-      const response = await API.postData(this.state, '/api/users');
+      const response = await API.postData({email, password}, '');
       await console.log(response)
       await setCurrentUser(response)
     } catch (error) {
