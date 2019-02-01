@@ -49,14 +49,14 @@ export class Login extends Component {
       return <Redirect to='/' />
     } else {
       return (
-        <div>
-          <Link to='/'>HOME</Link>
+        <div className='overlay-div'>
+          <Link className='home-link' to='/'>HOME</Link>
           <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
             {inputFields}
-            <input type="submit"/>
+            <input className='submit-button' type="submit"/>
           </form>
           <h3>{response}</h3>
-          <Link to='/signup'>Sign Up Here</Link>
+          <Link id='sign-up-link' to='/signup'>Sign Up Here</Link>
         </div>
       )
     }

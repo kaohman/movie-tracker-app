@@ -1,3 +1,62 @@
+.overlay-div {
+  margin: 10px auto;
+  max-width: 400px;
+  height: 325px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+form {
+  width: 200px;
+  margin: auto;
+}
+
 label {
+  text-transform: capitalize;
   display: block;
+  margin: 15px 0 5px 0;
+}
+
+input {
+  font-size: 16px;
+  height: 30px;
+  padding: 5px;
+  width: 200px;
+  display: block;
+}
+
+.home-link {
+  color: black;
+  text-align: right;
+  text-decoration: none;
+  display: block;
+  margin: 0 0 0 auto;
+
+  &:hover {
+    color: blue;
+  }
+}
+
+.submit-button {
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 15px;
+  max-width: 200px;
+  padding: 5px;
+
+  &:hover {
+    background-color: lightblue;
+  }
+}
+
+#sign-up-link {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    color: blue;
+  }
 }
