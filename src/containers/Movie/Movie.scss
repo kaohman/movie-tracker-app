@@ -5,3 +5,23 @@
 .movie-image {
   width: 300px;
 }
+
+.favorite-icon {
+  border: none;
+  background: url('./images/star-outline.png');
+  background-size: cover;
+  position: relative;
+  top: 40px;
+  right: -260px;
+  width: 30px;
+  height: 30px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background: url('./images/star-yellow.png');
+    background-size: cover;
+  }
+}

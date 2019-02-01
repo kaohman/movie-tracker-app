@@ -1,30 +1,40 @@
 import React from 'react'
-import { mapStateToProps, mapDispatchToProps } from '../Login/Login';
-import { toggleFavorite } from '../../actions';
+import { toggleFavorite, errorToDisplay } from '../../actions';
 import { connect } from 'react-redux';
 
-export const Movie = ({ poster_path }) => {
-  const handleClick = (id) => {
-    props.toggleFavorite(id);
+export const Movie = ({ poster_path, id, user, toggleFavorite, errorToDisplay }) => {
+  const handleClick = (event) => {
+    if (user.favorites) {
+      toggleFavorite(event.target.parrentElement.id);
+    } else {
+      errorToDisplay('Please log in to add favorites');
+    }
   }
 
   return (
-    <div className='movie-card' id={}>
-      <button onClick={(event) => handleClick()}></button>
+    <div className='movie-card' id={id}>
+      <button 
+        onClick={handleClick}
+        className=
+        {
+          (user.favorites && user.favorites.includes(id)) ? 'favorite-icon favorite' : 'favorite-icon'
+        }
+      ></button>
       <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${poster_path}`} alt="a" />
     </div>
   )
 }
 
 export const mapStateToProps = (state) => ({
-  favorites: state.user.favorites
+  user: state.user
 });
 
 export const mapDispatchToProps = (dispatch) => ({
   toggleFavorite: (id) => dispatch(toggleFavorite(id)),
+  errorToDisplay: (message) => dispatch(errorToDisplay(message)),
 });
 
-export default connect(null, mapDispatchToProps)(Movie);
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);
 
 // when user logs in, grab all favorites from backend using their user id and store them in redux state
 // on movie cards, add active class to favorited movies --> if favorites.includes(movie.id), add active class
