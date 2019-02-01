@@ -48,12 +48,14 @@ class SignUp extends Component {
     const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
     return (
       <div className='overlay-div'>
-        <Link className='home-link' to='/'>HOME</Link>
-        <form onSubmit={this.handleSubmit}>
-          {inputFields}
-          <input className='submit-button' type="submit" />
-        </form>
-        <h3>{response}</h3>
+        <div className='login-div'>
+          <Link className='home-link' to='/'>HOME</Link>
+          <form onSubmit={this.handleSubmit}>
+            {inputFields}
+            <input className='submit-button' type="submit" />
+          </form>
+          <h3>{response}</h3>
+        </div>
       </div>
     )
   }

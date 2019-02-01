@@ -50,13 +50,15 @@ export class Login extends Component {
     } else {
       return (
         <div className='overlay-div'>
-          <Link className='home-link' to='/'>HOME</Link>
-          <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
-            {inputFields}
-            <input className='submit-button' type="submit"/>
-          </form>
-          <h3>{response}</h3>
-          <Link id='sign-up-link' to='/signup'>Sign Up Here</Link>
+          <div className='login-div'>
+            <Link className='home-link' to='/'>HOME</Link>
+            <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
+              {inputFields}
+              <input className='submit-button' type="submit"/>
+            </form>
+            <h3>{response}</h3>
+            <Link id='sign-up-link' to='/signup'>Sign Up Here</Link>
+          </div>
         </div>
       )
     }
