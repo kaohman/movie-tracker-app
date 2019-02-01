@@ -35,10 +35,11 @@ export class App extends Component {
         <header>
           <h1>Movie Tracker</h1>
           <div>
-            <NavLink activeClassName='selected' className='nav-links' to="/favorites">Favorites</NavLink>
+            <NavLink activeClassName='selected' className='nav-links' to='/'>All Movies</NavLink>
+            <NavLink activeClassName='selected' className='nav-links' to='/favorites'>Favorites</NavLink>
             {
               this.props.user.name ?
-                <button className='nav-links' onClick={this.signOut}>signout</button> :
+                <button className='nav-links' id='sign-out-button' onClick={this.signOut}>Sign Out</button> :
                 <NavLink className='nav-links' to="/login">User Login</NavLink>
             }
           </div>
