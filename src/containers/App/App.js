@@ -35,6 +35,9 @@ export class App extends Component {
         <header>
           <h1>Movie Tracker</h1>
           <div>
+            {
+              this.props.user.name ? <span className="user-name">Welcome: {this.props.user.name}... </span> : ''
+            }
             <NavLink activeClassName='selected' className='nav-links' to='/'>Popular Movies</NavLink>
             <NavLink activeClassName='selected' className='nav-links' to='/favorites'>Favorites</NavLink>
             {
