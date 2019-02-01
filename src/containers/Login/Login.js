@@ -24,8 +24,8 @@ export class Login extends Component {
 
     try {
       const response = await API.postData(this.state.user, '');
-      
-      await setCurrentUser(response.data)
+      // call postData to get users favorites, if any, add these to user object on next line? or spearate piece in store?
+      await setCurrentUser({...response.data, favorites: []});
       await this.setState({isLoggedIn: true})
     } catch (error) {
       this.formRef.reset()
