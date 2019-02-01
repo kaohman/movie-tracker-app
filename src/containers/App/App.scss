@@ -1,3 +1,15 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 header {
   padding: 40px 6%;
   display: flex;
@@ -10,6 +22,10 @@ header {
   font-size: 20px;
   margin: 10px;
   text-decoration: none;
+
+  &:hover {
+    color: blue;
+  }
 }
 
 .selected {
