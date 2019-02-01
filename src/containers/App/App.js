@@ -34,12 +34,14 @@ export class App extends Component {
       <div className="App">
         <header>
           <h1>Movie Tracker</h1>
-          <NavLink to="/favorites">Favorites</NavLink>
-          {
-            this.props.user.name ?
-              <button onClick={this.signOut}>signout</button> :
-              <NavLink to="/login">User Login</NavLink>
-          }
+          <div>
+            <NavLink activeClassName='selected' className='nav-links' to="/favorites">Favorites</NavLink>
+            {
+              this.props.user.name ?
+                <button className='nav-links' onClick={this.signOut}>signout</button> :
+                <NavLink className='nav-links' to="/login">User Login</NavLink>
+            }
+          </div>
         </header>
         <Route exact path='/' component={Movies} />
         <Route exact path='/login' component={Login} />

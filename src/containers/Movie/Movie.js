@@ -1,10 +1,9 @@
 import React from 'react'
 
-const Movie = ({ title, poster_path }) => {
+const Movie = ({ poster_path }) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <img src={`http://image.tmdb.org/t/p/w185/${poster_path}`} alt="a" />
+    <div className='movie-card'>
+      <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${poster_path}`} alt="a" />
     </div>
   )
 }

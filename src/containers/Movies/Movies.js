@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const Movies = (props) => {
 
   return (
-    <div>
+    <div id='movie-container'>
       {
         props.movies.length &&
           props.movies.map(movie => <Movie {...movie} key={movie.id} />)
