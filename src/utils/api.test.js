@@ -18,7 +18,7 @@ describe('API', () => {
     // happy path when ok data are returned
 
     it('should throw an error if everything is not okay', async () => {
-      const expected = Error('Error fetching data: response.json is not a function');
+      const expected = TypeError(`Cannot read property 'message' of undefined`);
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 401,
         ok: false
@@ -32,12 +32,12 @@ describe('API', () => {
     let mockUser;
 
     beforeEach(() => {
-      url = '/api/users/';
+      url = '';
       mockUser = { name: 'Taylor', email: 'tman@aol.com', id: 1, password: 'password' }
     });
     
     it('should call fetch with the correct parameters', () => {
-      const expected = ['http://localhost:3000/api/users/', {
+      const expected = ['http://localhost:3000/api/users', {
         method: 'POST',
         body: JSON.stringify(mockUser),
         headers: {
@@ -52,7 +52,7 @@ describe('API', () => {
     // happy path when ok data are returned
 
     it('should throw an error if everything is not okay', async () => {
-      const expected = Error('Error posting data: response.json is not a function');
+      const expected = TypeError(`Cannot read property 'message' of undefined`);
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 401,
         ok: false
