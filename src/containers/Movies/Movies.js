@@ -11,7 +11,7 @@ export class Movies extends Component {
       return (
         <div id='movie-container'>
           {
-            favorites.length ? favorites.map(movie => <Movie {...movie} location={location} key={movie.id} />) :
+            favorites.length ? favorites.map(movie => <Movie {...movie} key={movie.id} />) :
             <h4>No favorites to show</h4>
           }
         </div>

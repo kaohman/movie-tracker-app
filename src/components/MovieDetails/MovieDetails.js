@@ -12,7 +12,6 @@ export const MovieDetails = (props) => {
       <h4>{props.overview}</h4>
       <h4>{props.release_date}</h4>
       <h4>{props.vote_average}</h4>
-      <h4>{props.popularity}</h4>
     </div>
   )
 }

@@ -1,7 +1,10 @@
 export const moviesReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_MOVIES':
-      return action.movies;
+      const allMovies = action.movies.map(movie => {
+        return { ...movie, movie_id: movie.id }
+      })
+      return allMovies;
     default:
       return state;
   }
