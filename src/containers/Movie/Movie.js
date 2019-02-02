@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 export const Movie = ({ poster_path, id, user, toggleFavorite, errorToDisplay }) => {
   const handleClick = (event) => {
     if (user.favorites) {
-      toggleFavorite(event.target.parrentElement.id);
+      toggleFavorite(event.target.parentElement.id);
     } else {
       errorToDisplay('Please log in to add favorites');
     }
