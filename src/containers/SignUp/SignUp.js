@@ -21,11 +21,12 @@ class SignUp extends Component {
     let message;
     try {
       const response = await API.postData(this.state.user, '/new');
-      message = response.message ? response.message : 'User already created'
+      message = `${response.message}. Please log in.`
     } catch (error) {
-      throw Error(`Error creating user: ${error.message}`);
+      message = 'User email already exists, please try again or log in.';
     }
 
+    this.formRef.reset()
     this.setState({
       user: {
         name: '',
@@ -50,10 +51,11 @@ class SignUp extends Component {
       <div className='overlay-div'>
         <div className='login-div'>
           <Link className='home-link' to='/'>HOME</Link>
-          <form onSubmit={this.handleSubmit}>
+          <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
             {inputFields}
             <input className='submit-button' type="submit" />
           </form>
+          <Link className='sign-up-login-link' to='/login'>Login</Link>
           <h3>{response}</h3>
         </div>
       </div>

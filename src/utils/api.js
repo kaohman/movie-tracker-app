@@ -20,7 +20,7 @@ const postData = async (data, suffix) => {
   if (response.ok) {
     return await response.json()
   } else {
-    throw Error(`Error posting data: ${response.error.message}`);
+    throw Error(`Error posting data: ${response.statusText}`);
   }
 }
 

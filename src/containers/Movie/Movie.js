@@ -54,13 +54,16 @@ export class Movie extends Component {
     }
     return (
       <div className='movie-card' id={movie_id}>
-        <button 
-          onClick={this.handleClick}
-          className=
-          {
-            favorite ? 'favorite-icon favorite' : 'favorite-icon'
-          }
-        ></button>
+        {
+          user.favorites && 
+            <button 
+              onClick={this.handleClick}
+              className=
+              {
+                favorite ? 'favorite-icon favorite' : 'favorite-icon'
+              }
+            ></button>
+        }
         <Link to={`/movies/${movie_id}`}>
           <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${poster_path}`} alt="a" />
         </Link>

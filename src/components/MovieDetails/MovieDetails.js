@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const MovieDetails = (props) => {
+  console.log(props)
   return (
     <div>
       <Link to='/'>

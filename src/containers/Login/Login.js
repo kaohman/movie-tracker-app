@@ -32,7 +32,7 @@ export class Login extends Component {
       errorToDisplay(error)
       await this.setState({
         user: { email: '', password: '' },
-        response: 'User does not exist, please try again or sign up',
+        response: 'Email and password do not match or user does not exist'
       })
     }
   }
@@ -61,12 +61,12 @@ export class Login extends Component {
         <div className='overlay-div'>
           <div className='login-div'>
             <Link className='home-link' to='/'>HOME</Link>
-            <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
+            <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
               {inputFields}
               <input className='submit-button' type="submit"/>
             </form>
+            <Link className='sign-up-login-link' to='/signup'>Sign Up Here</Link>
             <h3>{response}</h3>
-            <Link id='sign-up-link' to='/signup'>Sign Up Here</Link>
           </div>
         </div>
       )
