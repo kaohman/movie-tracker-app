@@ -18,7 +18,7 @@ export class App extends Component {
     const root = `https://api.themoviedb.org/3/movie/${initialCategory}`
     const url = `${root}?page=1&api_key=${apiKey}&language=en-US`
     try {
-      const movies = await API.fetchData(url);
+      const movies = await API.getData(url);
       await setMovies(movies.results);
     } catch (error) {
       errorToDisplay(error)
@@ -26,7 +26,7 @@ export class App extends Component {
   }
 
   signOut = () => {
-    this.props.setCurrentUser({})
+    this.props.setCurrentUser({});
   }
 
   render() {
