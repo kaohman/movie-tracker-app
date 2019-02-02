@@ -2,20 +2,19 @@ import React from 'react'
 import Movie from '../Movie/Movie'
 import { connect } from 'react-redux'
 
-const Movies = (props) => {
-
+const Movies = ({ movies }) => {
   return (
     <div id='movie-container'>
       {
-        props.movies.length &&
-          props.movies.map(movie => <Movie {...movie} key={movie.id} />)
+        movies.length &&
+          movies.map(movie => <Movie movie={movie} key={movie.id} />)
       }
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  return { movies: state.movies, }
-}
+const mapStateToProps = (state) => ({
+  movies: state.movies
+});
 
 export default connect(mapStateToProps)(Movies);

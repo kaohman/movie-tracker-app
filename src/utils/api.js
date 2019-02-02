@@ -7,11 +7,11 @@ const fetchData = async (url) => {
   }
 }
 
-const postData = async (user, suffix) => {
+const postData = async (data, suffix) => {
   const url = `http://localhost:3000/api/users${suffix}`;
   const response = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(user),
+    body: JSON.stringify(data),
     headers: {
       'Content-type': 'application/json'
     }

@@ -1,26 +1,47 @@
 import React from 'react'
 import { toggleFavorite, errorToDisplay } from '../../actions';
 import { connect } from 'react-redux';
+import API from '../../utils/api';
 
-export const Movie = ({ poster_path, id, user, toggleFavorite, errorToDisplay }) => {
+export const Movie = ({ movie, user, toggleFavorite, errorToDisplay }) => {
   const handleClick = (event) => {
     if (user.favorites) {
       toggleFavorite(event.target.parentElement.id);
+      addToUserFavorites();
     } else {
       errorToDisplay('Please log in to add favorites');
     }
   }
 
+  const addToUserFavorites = async () => {
+    const { id, title, poster_path, release_date, vote_average, overview } = movie;
+    const favoriteMovie = {
+      movie_id: id,
+      user_id: user.id,
+      title,
+      poster_path,
+      release_date,
+      vote_average,
+      overview,
+    };
+
+    try {
+      await API.postData(favoriteMovie, '/favorites/new');
+    } catch(error) {
+      errorToDisplay('Error. Favorite could not be added')
+    }
+  }
+
   return (
-    <div className='movie-card' id={id}>
+    <div className='movie-card' id={movie.id}>
       <button 
         onClick={handleClick}
         className=
         {
-          (user.favorites && user.favorites.includes(id)) ? 'favorite-icon favorite' : 'favorite-icon'
+          (user.favorites && user.favorites.includes(movie.id.toString())) ? 'favorite-icon favorite' : 'favorite-icon'
         }
       ></button>
-      <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${poster_path}`} alt="a" />
+      <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt="a" />
     </div>
   )
 }
