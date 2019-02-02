@@ -2,12 +2,12 @@ import React from 'react'
 import Movie from '../Movie/Movie'
 import { connect } from 'react-redux'
 
-const Movies = ({ movies }) => {
+const Movies = (props) => {
   return (
     <div id='movie-container'>
       {
-        movies.length &&
-          movies.map(movie => <Movie {...movie} key={movie.id} />)
+        props.movies.length &&
+          props.movies.map(movie => <Movie {...movie} location={props.location} key={movie.id} />)
       }
     </div>
   )
