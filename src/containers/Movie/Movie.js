@@ -7,7 +7,7 @@ export const Movie = ({ movie, user, toggleFavorite, errorToDisplay }) => {
   const handleClick = (event) => {
     if (user.favorites) {
       toggleFavorite(event.target.parentElement.id);
-      addToUserFavorites();
+      user.favorites.includes(movie.id.toString()) ? removeFromUserFavorites() : addToUserFavorites();
     } else {
       errorToDisplay('Please log in to add favorites');
     }
@@ -28,7 +28,15 @@ export const Movie = ({ movie, user, toggleFavorite, errorToDisplay }) => {
     try {
       await API.postData(favoriteMovie, '/favorites/new');
     } catch(error) {
-      errorToDisplay('Error. Favorite could not be added')
+      errorToDisplay(error)
+    }
+  }
+
+  const removeFromUserFavorites = async () => {
+    try {
+      await API.deleteData(`/${user.id}/favorites/${movie.id}`)
+    } catch (error) {
+      errorToDisplay(error)
     }
   }
 

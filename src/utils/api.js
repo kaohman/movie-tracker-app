@@ -24,7 +24,24 @@ const postData = async (data, suffix) => {
   }
 }
 
+const deleteData = async (suffix) => {
+  const url = `http://localhost:3000/api/users${suffix}`;
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+
+  if (response.ok) {
+    return await response.json()
+  } else {
+    throw Error(`Error deleting data: ${response.error.message}`);
+  }
+}
+
 export default {
   fetchData,
   postData,
+  deleteData
 }
