@@ -13,7 +13,7 @@
   position: fixed;
   margin: 10px auto;
   width: 325px;
-  height: 325px;
+  height: 400px;
   padding: 20px;
   border: 1px solid black;
   z-index: 12;
@@ -68,7 +68,7 @@ input {
   }
 }
 
-#sign-up-link {
+.sign-up-login-link {
   color: black;
   text-align: center;
   text-decoration: none;
