@@ -49,6 +49,9 @@ export class App extends Component {
           </div>
         </header>
         <Route exact path='/' component={Movies} />
+        <Route exact path='/favorites' render={() => {
+          return <Movies location={this.props.location} />
+        }} />
         <Route path='/movies/:id' render={({ match }) => {
           const { id } = match.params;
           const movie = this.props.movies.find(movie => movie.id === parseInt(id))
