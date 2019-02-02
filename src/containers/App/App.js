@@ -9,6 +9,7 @@ import Movies from '../Movies/Movies'
 import Login from '../Login/Login'
 import { Route, NavLink, withRouter } from 'react-router-dom';
 import SignUp from '../SignUp/SignUp';
+import MovieDetails from '../../components/MovieDetails/MovieDetails'
 
 export class App extends Component {
   
@@ -47,7 +48,15 @@ export class App extends Component {
             }
           </div>
         </header>
-        <Route path='/' component={Movies} />
+        <Route exact path='/' component={Movies} />
+        <Route path='/movies/:id' render={({ match }) => {
+          const { id } = match.params;
+          const movie = this.props.movies.find(movie => movie.id === parseInt(id))
+          
+          if (movie) {
+            return <MovieDetails {...movie} />
+          }
+        }} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={SignUp} />
       </div>
@@ -56,7 +65,8 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  movies: state.movies,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
