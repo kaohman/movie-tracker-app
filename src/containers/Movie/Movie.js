@@ -6,9 +6,9 @@ import API from '../../utils/api';
 export class Movie extends Component {
 
   handleClick = async () => {
-    const { user, toggleFavorite, errorToDisplay, movie } = this.props;
+    const { user, toggleFavorite, errorToDisplay } = this.props;
     if (user.favorites) {
-      const { id, title, poster_path, release_date, vote_average, overview } = this.props.movie;
+      const { id, title, poster_path, release_date, vote_average, overview } = this.props;
       const favoriteMovie = {
         movie_id: id,
         user_id: user.id,
@@ -19,7 +19,7 @@ export class Movie extends Component {
         overview,
       };
       toggleFavorite(favoriteMovie);
-      const favorite = user.favorites.find(favorite => favorite.movie_id === movie.id)
+      const favorite = user.favorites.find(favorite => favorite.movie_id === id)
       favorite ? 
         await this.removeFromUserFavorites() : 
         await this.addToUserFavorites(favoriteMovie);
@@ -37,22 +37,22 @@ export class Movie extends Component {
   }
 
   removeFromUserFavorites = async () => {
-    const { user, movie } = this.props;
+    const { id, user } = this.props;
     try {
-      await API.deleteData(`/${user.id}/favorites/${movie.id}`)
+      await API.deleteData(`/${user.id}/favorites/${id}`)
     } catch (error) {
       errorToDisplay(error)
     }
   }
 
   render() {
-    const { movie, user } = this.props;
+    const { id, poster_path, user } = this.props;
     let favorite;
     if (user.favorites) {
-      favorite = user.favorites.find(favorite => favorite.movie_id === movie.id)
+      favorite = user.favorites.find(favorite => favorite.movie_id === id)
     }
     return (
-      <div className='movie-card' id={movie.id}>
+      <div className='movie-card' id={id}>
         <button 
           onClick={this.handleClick}
           className=
@@ -60,7 +60,7 @@ export class Movie extends Component {
             favorite ? 'favorite-icon favorite' : 'favorite-icon'
           }
         ></button>
-        <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt="a" />
+        <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${poster_path}`} alt="a" />
       </div>
     )
   }

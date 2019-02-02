@@ -7,7 +7,7 @@ const Movies = ({ movies }) => {
     <div id='movie-container'>
       {
         movies.length &&
-          movies.map(movie => <Movie movie={movie} key={movie.id} />)
+          movies.map(movie => <Movie {...movie} key={movie.id} />)
       }
     </div>
   )
