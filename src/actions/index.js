@@ -3,10 +3,15 @@ export const setCurrentUser = (user) => ({
   user,
 });
 
-export const toggleFavorite = (id) => ({
+export const toggleFavorite = (movie) => ({
   type: 'TOGGLE_FAVORITE',
-  id,
+  movie,
 });
+
+export const setUserFavorites = (favorites) => ({
+  type: 'SET_USER_FAVORITES',
+  favorites,
+})
 
 export const setMovies = (movies) => ({
   type: 'SET_MOVIES',

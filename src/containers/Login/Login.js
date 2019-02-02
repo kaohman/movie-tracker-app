@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
-import { setCurrentUser, errorToDisplay } from '../../actions';
+import { setCurrentUser, errorToDisplay, setUserFavorites } from '../../actions';
 import { connect } from 'react-redux';
 
 export class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       user: {
         email: '',
@@ -24,8 +24,8 @@ export class Login extends Component {
 
     try {
       const response = await API.postData(this.state.user, '');
-      // call postData to get users favorites, if any, add these to user object on next line
       await setCurrentUser({...response.data, favorites: []});
+      await this.fetchFavorites(this.props.user);
       await this.setState({isLoggedIn: true})
     } catch (error) {
       this.formRef.reset()
@@ -34,6 +34,15 @@ export class Login extends Component {
         user: { email: '', password: '' },
         response: 'User does not exist, please try again or sign up',
       })
+    }
+  }
+
+  fetchFavorites = async (user) => {
+    try {
+      const results = await API.getData(`http://localhost:3000/api/users/${user.id}/favorites`);
+      this.props.setUserFavorites(results.data);
+    } catch (error) {
+      errorToDisplay(error)
     }
   }
 
@@ -65,9 +74,14 @@ export class Login extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  user: state.user,
+})
+
 export const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   errorToDisplay: (message) => dispatch(errorToDisplay(message)),
+  setUserFavorites: (favorites) => dispatch(setUserFavorites(favorites)),
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

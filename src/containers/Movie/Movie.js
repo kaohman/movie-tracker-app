@@ -1,38 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { toggleFavorite, errorToDisplay } from '../../actions';
 import { connect } from 'react-redux';
 import API from '../../utils/api';
 
-export const Movie = ({ movie, user, toggleFavorite, errorToDisplay }) => {
-  const handleClick = (event) => {
+export class Movie extends Component {
+
+  handleClick = async () => {
+    const { user, toggleFavorite, errorToDisplay, movie } = this.props;
     if (user.favorites) {
-      toggleFavorite(event.target.parentElement.id);
-      user.favorites.includes(movie.id.toString()) ? removeFromUserFavorites() : addToUserFavorites();
+      const { id, title, poster_path, release_date, vote_average, overview } = this.props.movie;
+      const favoriteMovie = {
+        movie_id: id,
+        user_id: user.id,
+        title,
+        poster_path,
+        release_date,
+        vote_average,
+        overview,
+      };
+      toggleFavorite(favoriteMovie);
+      const favorite = user.favorites.find(favorite => favorite.movie_id === movie.id)
+      favorite ? 
+        await this.removeFromUserFavorites() : 
+        await this.addToUserFavorites(favoriteMovie);
     } else {
       errorToDisplay('Please log in to add favorites');
     }
   }
 
-  const addToUserFavorites = async () => {
-    const { id, title, poster_path, release_date, vote_average, overview } = movie;
-    const favoriteMovie = {
-      movie_id: id,
-      user_id: user.id,
-      title,
-      poster_path,
-      release_date,
-      vote_average,
-      overview,
-    };
-
+  addToUserFavorites = async (movie) => {
     try {
-      await API.postData(favoriteMovie, '/favorites/new');
+      await API.postData(movie, '/favorites/new');
     } catch(error) {
       errorToDisplay(error)
     }
   }
 
-  const removeFromUserFavorites = async () => {
+  removeFromUserFavorites = async () => {
+    const { user, movie } = this.props;
     try {
       await API.deleteData(`/${user.id}/favorites/${movie.id}`)
     } catch (error) {
@@ -40,18 +45,25 @@ export const Movie = ({ movie, user, toggleFavorite, errorToDisplay }) => {
     }
   }
 
-  return (
-    <div className='movie-card' id={movie.id}>
-      <button 
-        onClick={handleClick}
-        className=
-        {
-          (user.favorites && user.favorites.includes(movie.id.toString())) ? 'favorite-icon favorite' : 'favorite-icon'
-        }
-      ></button>
-      <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt="a" />
-    </div>
-  )
+  render() {
+    const { movie, user } = this.props;
+    let favorite;
+    if (user.favorites) {
+      favorite = user.favorites.find(favorite => favorite.movie_id === movie.id)
+    }
+    return (
+      <div className='movie-card' id={movie.id}>
+        <button 
+          onClick={this.handleClick}
+          className=
+          {
+            favorite ? 'favorite-icon favorite' : 'favorite-icon'
+          }
+        ></button>
+        <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt="a" />
+      </div>
+    )
+  }
 }
 
 export const mapStateToProps = (state) => ({
@@ -59,12 +71,8 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  toggleFavorite: (id) => dispatch(toggleFavorite(id)),
+  toggleFavorite: (movie) => dispatch(toggleFavorite(movie)),
   errorToDisplay: (message) => dispatch(errorToDisplay(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movie);
-
-// when user logs in, grab all favorites from backend using their user id and store them in redux state
-// on movie cards, add active class to favorited movies --> if favorites.includes(movie.id), add active class
-// when user clicks favorite icon, toggle favorite in redux state and do api call to add/remove from backend

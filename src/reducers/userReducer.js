@@ -4,12 +4,14 @@ export const userReducer = (state = {}, action) => {
       return action.user;
     case 'TOGGLE_FAVORITE':
       const { favorites } = state;
-      if (favorites.includes(action.id)) {
-        const newFavorites = favorites.filter(id => id !== action.id);
+      const newFavorites = favorites.filter(favorite => favorite.movie_id !== action.movie.movie_id);
+      if (newFavorites.length < favorites.length) {
         return {...state, favorites: newFavorites};
       } else {
-        return {...state, favorites: [...favorites, action.id]};
+        return {...state, favorites: [...favorites, action.movie]};
       }
+    case 'SET_USER_FAVORITES':
+      return {...state, favorites: action.favorites}
     default:
       return state;
   }
