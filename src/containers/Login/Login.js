@@ -24,7 +24,6 @@ export class Login extends Component {
 
     try {
       const response = await API.postData(this.state.user, '');
-      console.log(response)
       await setCurrentUser(response.data)
       await this.setState({isLoggedIn: true})
     } catch (error) {

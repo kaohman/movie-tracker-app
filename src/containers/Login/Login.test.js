@@ -1,11 +1,18 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Login } from './Login'
-import api from '../../utils/api';
-import { errorToDisplay } from '../../actions'
+import API from '../../utils/api';
 
 describe('Login', () => {
-  let wrapper = shallow(<Login />)
+  const mockSetCurrentUser = jest.fn()
+  const mockErrorToDisplay = jest.fn()
+
+  let wrapper = shallow(
+    <Login
+      errorToDisplay={mockErrorToDisplay}
+      setCurrentUser={mockSetCurrentUser} />
+  )
+
   const mockPreventDefault = {
     preventDefault: () => {}
   }
@@ -43,26 +50,44 @@ describe('Login', () => {
   })
 
   describe('handleSubmit', () => {
-    it.skip('should unsuccessfully log user in', async () => {
-      const mockData = {
-        a: 'a'
-      }
+    it('should unsuccessfully log user in', async () => {
       wrapper.instance().formRef = {
         reset: jest.fn()
       }
-      // errorToDisplay.mockImplementation(() => {
-      //   error: ''
-      // })
 
-      api.postData = jest.fn().mockImplementation(() => {
-        return mockData
+      API.postData = jest.fn().mockImplementation(() => {
+        throw Error('user not logged in');
       })
-      const expected = true;
+      const expected = false;
 
       await wrapper.instance().handleSubmit(mockPreventDefault)
 
       expect(wrapper.state('isLoggedIn')).toEqual(expected)
       
+    })
+    
+    it('should successfully log user in', async () => {
+      const mockData = {
+        email: "a@a",
+        password: "a",
+      }
+
+      API.postData = jest.fn().mockImplementation(() => {
+        return { data: mockData }
+      })
+      const expected = true
+      await wrapper.instance().handleSubmit(mockPreventDefault)
+
+      expect(wrapper.state('isLoggedIn')).toEqual(expected)
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should set current user', () => {
+      const mockDispatch = {email: 'a@a', password: 'a'}
+      wrapper.instance().mapDispatchToProps(mockDispatch)
+
+      expect()
     })
   })
 })
