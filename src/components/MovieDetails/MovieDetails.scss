@@ -3,8 +3,7 @@
   position: fixed;
   margin: 10px auto;
   width: 1000px;
-  height: 570px;
-  padding: 20px;
+  height: 563px;
   border: 1px solid black;
   z-index: 12;
   left: 50%;
@@ -12,4 +11,45 @@
   margin-left: -500px;
   margin-top: -250px;
   position: fixed;
+  box-shadow: 2px 2px 8px black;
+}
+
+.movie-backdrop {
+  position: absolute;
+  width: 998px;
+  z-index: 13;
+}
+
+.return-link {
+  text-shadow: 2px 2px 8px black;
+  color: white;
+  margin: 20px;
+  position: absolute;
+  z-index: 14;
+}
+
+.movie-text-div {
+  height: 275px;
+  position: relative;
+  top: 286px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 14;
+  padding: 20px;
+}
+
+.movie-details-div {
+  z-index: 15;
+}
+
+.movie-details {
+  color: white;
+}
+
+#title-text {
+  margin-top: 5px;
+}
+
+#overview-text {
+  text-align: justify;
+  width: 700px;
 }

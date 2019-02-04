@@ -6,13 +6,15 @@ export const MovieDetails = (props) => {
     <div className='overlay-div'>
       <div className='movie-details-div'>
         <Link to='/'>
-          <h4>All Movies</h4>
+          <h4 className='return-link'>Return To All Movies</h4>
         </Link>
-        <img src={`http://image.tmdb.org/t/p/w500/${props.backdrop_path}`} alt=""/>
-        <h4>{props.title}</h4>
-        <h4>{props.overview}</h4>
-        <h4>{props.release_date}</h4>
-        <h4>{props.vote_average}</h4>
+        <img className='movie-backdrop' src={`http://image.tmdb.org/t/p/w1280/${props.backdrop_path}`} alt=""/>
+        <div className='movie-text-div'>
+          <h2 className='movie-details' id='title-text'>{props.title}</h2>
+          <p className='movie-details' id='overview-text'>{props.overview}</p>
+          <p className='movie-details'>Release Date: {props.release_date}</p>
+          <p className='movie-details'>Average Rating: {props.vote_average}</p>
+        </div>
       </div>
     </div>
   )
