@@ -5,25 +5,25 @@ import { connect } from 'react-redux';
 import { setMovies, errorToDisplay, setCurrentUser, isLoading } from '../../actions';
 import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
-import Movies from '../Movies/Movies'
-import Login from '../Login/Login'
+import Movies from '../Movies/Movies';
+import Login from '../Login/Login';
 import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
 import SignUp from '../SignUp/SignUp';
-import MovieDetails from '../../components/MovieDetails/MovieDetails'
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
 
 export class App extends Component {
   
   componentDidMount = async () => {
     const { errorToDisplay, setMovies, isLoading } = this.props
     const initialCategory = 'popular'
-    const root = `https://api.themoviedb.org/3/movie/${initialCategory}`
-    const url = `${root}?page=1&api_key=${apiKey}&language=en-US`
+    const root = `https://api.themoviedb.org/3/movie/${initialCategory}`;
+    const url = `${root}?page=1&api_key=${apiKey}&language=en-US`;
     try {
       const movies = await API.getData(url);
       await setMovies(movies.results);
       isLoading(false);
     } catch (error) {
-      errorToDisplay(error)
+      errorToDisplay(error);
     }
   }
 
