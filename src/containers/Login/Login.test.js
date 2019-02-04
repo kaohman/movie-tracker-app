@@ -1,7 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Login } from './Login'
+import { Login, mapDispatchToProps } from './Login'
 import API from '../../utils/api';
+import { setCurrentUser, errorToDisplay } from '../../actions'
 
 describe('Login', () => {
   const mockSetCurrentUser = jest.fn()
@@ -33,7 +34,7 @@ describe('Login', () => {
       expect(wrapper.state()).toEqual(expected)
     })
   })
-  
+
   describe('handleChange', () => {
     it('should update state with the input value', () => {
       const mockEvent = {
@@ -79,6 +80,36 @@ describe('Login', () => {
       await wrapper.instance().handleSubmit(mockPreventDefault)
 
       expect(wrapper.state('isLoggedIn')).toEqual(expected)
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should call setCurrentUser when user successfully logs in', () => {
+      const mockDispatch = jest.fn()
+      const mockUser = {
+        email: "a@a",
+        id: 1,
+        name: "a",
+        password: "a",
+      }
+      const actionToDispatch = setCurrentUser(mockUser)
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.setCurrentUser(mockUser)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it('should call errorToDisplay...', () => {
+      const mockDispatch = jest.fn()
+      const mockError = 'Oops...something went wrong'
+      const actionToDispatch = errorToDisplay(mockError)
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.errorToDisplay(mockError)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+      
     })
   })
 })
