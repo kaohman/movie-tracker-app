@@ -60,13 +60,15 @@ export class Login extends Component {
       return (
         <div className='overlay-div'>
           <div className='login-div'>
-            <Link className='home-link' to='/'>HOME</Link>
+            <Link to='/'>
+              <button className='home-link'></button>
+            </Link>
             <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
               {inputFields}
               <input className='submit-button' type="submit"/>
             </form>
             <Link className='sign-up-login-link' to='/signup'>Sign Up Here</Link>
-            <h3>{response}</h3>
+            <p className='response'>{response}</p>
           </div>
         </div>
       )

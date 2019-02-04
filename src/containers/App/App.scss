@@ -8,9 +8,11 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #1e1e1e;
 }
 
 header {
+  color: white;
   padding: 40px 6% 10px 6%;
   display: flex;
   justify-content: space-between;
@@ -18,19 +20,19 @@ header {
 }
 
 .nav-links {
-  color: black;
+  color: white;
   font-size: 20px;
   margin: 10px;
   text-decoration: none;
 
   &:hover {
-    color: blue;
+    color: purple;
   }
 }
 
-.selected {
-  color: hotpink;
-}
+// .selected {
+//   color: hotpink;
+// }
 
 #sign-out-button {
   font-size: 20px;
@@ -50,6 +52,6 @@ header {
   font-size: 20px;
   border: none;
   background: none;
-  color: maroon;
-
+  color: purple;
+  margin-right: 20px;
 }
