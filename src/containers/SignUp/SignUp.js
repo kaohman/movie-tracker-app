@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
 
-class SignUp extends Component {
+export class SignUp extends Component {
   constructor() {
     super();
     this.state = {

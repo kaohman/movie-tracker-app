@@ -5,7 +5,9 @@ import API from '../../utils/api'
 
 describe('Signup', () => {
   let wrapper = shallow( <SignUp /> )
-  const mockPreventDefault = { preventDefault: () => { } }
+  const mockPreventDefault = {
+    preventDefault: () => { }
+  }
 
   describe('defaults', () => {    
     it('should match snapshot', () => {
