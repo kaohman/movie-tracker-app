@@ -71,7 +71,7 @@ describe('Login', () => {
         email: "a@a",
         password: "a",
       }
-
+      
       API.postData = jest.fn().mockImplementation(() => {
         return { data: mockData }
       })
@@ -79,15 +79,6 @@ describe('Login', () => {
       await wrapper.instance().handleSubmit(mockPreventDefault)
 
       expect(wrapper.state('isLoggedIn')).toEqual(expected)
-    })
-  })
-
-  describe('mapDispatchToProps', () => {
-    it('should set current user', () => {
-      const mockDispatch = {email: 'a@a', password: 'a'}
-      wrapper.instance().mapDispatchToProps(mockDispatch)
-
-      expect()
     })
   })
 })
