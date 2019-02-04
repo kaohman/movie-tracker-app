@@ -25,13 +25,15 @@ ShallowWrapper {
         className="login-div"
       >
         <Link
-          className="home-link"
           replace={false}
           to="/"
         >
-          HOME
+          <button
+            className="home-link"
+          />
         </Link>
         <form
+          autoComplete="off"
           onSubmit={[Function]}
         >
           <label>
@@ -57,16 +59,18 @@ ShallowWrapper {
             type="submit"
           />
         </form>
-        <h3>
-          
-        </h3>
         <Link
-          id="sign-up-link"
+          className="sign-up-login-link"
           replace={false}
           to="/signup"
         >
           Sign Up Here
         </Link>
+        <p
+          className="response"
+        >
+          
+        </p>
       </div>,
       "className": "overlay-div",
     },
@@ -78,13 +82,15 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Link
-            className="home-link"
             replace={false}
             to="/"
           >
-            HOME
+            <button
+              className="home-link"
+            />
           </Link>,
           <form
+            autoComplete="off"
             onSubmit={[Function]}
           >
             <label>
@@ -110,16 +116,18 @@ ShallowWrapper {
               type="submit"
             />
           </form>,
-          <h3>
-            
-          </h3>,
           <Link
-            id="sign-up-link"
+            className="sign-up-login-link"
             replace={false}
             to="/signup"
           >
             Sign Up Here
           </Link>,
+          <p
+            className="response"
+          >
+            
+          </p>,
         ],
         "className": "login-div",
       },
@@ -130,13 +138,24 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "HOME",
-            "className": "home-link",
+            "children": <button
+              className="home-link"
+            />,
             "replace": false,
             "to": "/",
           },
           "ref": null,
-          "rendered": "HOME",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "home-link",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "button",
+          },
           "type": [Function],
         },
         Object {
@@ -144,6 +163,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "autoComplete": "off",
             "children": Array [
               Array [
                 <label>
@@ -262,27 +282,28 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "",
-          },
-          "ref": null,
-          "rendered": "",
-          "type": "h3",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
           "nodeType": "class",
           "props": Object {
             "children": "Sign Up Here",
-            "id": "sign-up-link",
+            "className": "sign-up-login-link",
             "replace": false,
             "to": "/signup",
           },
           "ref": null,
           "rendered": "Sign Up Here",
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "response",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "p",
         },
       ],
       "type": "div",
@@ -299,13 +320,15 @@ ShallowWrapper {
           className="login-div"
         >
           <Link
-            className="home-link"
             replace={false}
             to="/"
           >
-            HOME
+            <button
+              className="home-link"
+            />
           </Link>
           <form
+            autoComplete="off"
             onSubmit={[Function]}
           >
             <label>
@@ -331,16 +354,18 @@ ShallowWrapper {
               type="submit"
             />
           </form>
-          <h3>
-            
-          </h3>
           <Link
-            id="sign-up-link"
+            className="sign-up-login-link"
             replace={false}
             to="/signup"
           >
             Sign Up Here
           </Link>
+          <p
+            className="response"
+          >
+            
+          </p>
         </div>,
         "className": "overlay-div",
       },
@@ -352,13 +377,15 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Link
-              className="home-link"
               replace={false}
               to="/"
             >
-              HOME
+              <button
+                className="home-link"
+              />
             </Link>,
             <form
+              autoComplete="off"
               onSubmit={[Function]}
             >
               <label>
@@ -384,16 +411,18 @@ ShallowWrapper {
                 type="submit"
               />
             </form>,
-            <h3>
-              
-            </h3>,
             <Link
-              id="sign-up-link"
+              className="sign-up-login-link"
               replace={false}
               to="/signup"
             >
               Sign Up Here
             </Link>,
+            <p
+              className="response"
+            >
+              
+            </p>,
           ],
           "className": "login-div",
         },
@@ -404,13 +433,24 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "HOME",
-              "className": "home-link",
+              "children": <button
+                className="home-link"
+              />,
               "replace": false,
               "to": "/",
             },
             "ref": null,
-            "rendered": "HOME",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "home-link",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "button",
+            },
             "type": [Function],
           },
           Object {
@@ -418,6 +458,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "autoComplete": "off",
               "children": Array [
                 Array [
                   <label>
@@ -536,27 +577,28 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "",
-            },
-            "ref": null,
-            "rendered": "",
-            "type": "h3",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
             "nodeType": "class",
             "props": Object {
               "children": "Sign Up Here",
-              "id": "sign-up-link",
+              "className": "sign-up-login-link",
               "replace": false,
               "to": "/signup",
             },
             "ref": null,
             "rendered": "Sign Up Here",
             "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "response",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": "p",
           },
         ],
         "type": "div",

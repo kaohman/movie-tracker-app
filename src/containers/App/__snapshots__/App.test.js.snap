@@ -37,9 +37,8 @@ ShallowWrapper {
             <span
               className="user-name"
             >
-              Welcome: 
+              Welcome 
               Tommy
-              ... 
             </span>
             <NavLink
               activeClassName="selected"
@@ -106,9 +105,8 @@ ShallowWrapper {
               <span
                 className="user-name"
               >
-                Welcome: 
+                Welcome 
                 Tommy
-                ... 
               </span>
               <NavLink
                 activeClassName="selected"
@@ -158,9 +156,8 @@ ShallowWrapper {
                 <span
                   className="user-name"
                 >
-                  Welcome: 
+                  Welcome 
                   Tommy
-                  ... 
                 </span>,
                 <NavLink
                   activeClassName="selected"
@@ -195,17 +192,15 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    "Welcome: ",
+                    "Welcome ",
                     "Tommy",
-                    "... ",
                   ],
                   "className": "user-name",
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Welcome: ",
+                  "Welcome ",
                   "Tommy",
-                  "... ",
                 ],
                 "type": "span",
               },
@@ -358,9 +353,8 @@ ShallowWrapper {
               <span
                 className="user-name"
               >
-                Welcome: 
+                Welcome 
                 Tommy
-                ... 
               </span>
               <NavLink
                 activeClassName="selected"
@@ -427,9 +421,8 @@ ShallowWrapper {
                 <span
                   className="user-name"
                 >
-                  Welcome: 
+                  Welcome 
                   Tommy
-                  ... 
                 </span>
                 <NavLink
                   activeClassName="selected"
@@ -479,9 +472,8 @@ ShallowWrapper {
                   <span
                     className="user-name"
                   >
-                    Welcome: 
+                    Welcome 
                     Tommy
-                    ... 
                   </span>,
                   <NavLink
                     activeClassName="selected"
@@ -516,17 +508,15 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
-                      "Welcome: ",
+                      "Welcome ",
                       "Tommy",
-                      "... ",
                     ],
                     "className": "user-name",
                   },
                   "ref": null,
                   "rendered": Array [
-                    "Welcome: ",
+                    "Welcome ",
                     "Tommy",
-                    "... ",
                   ],
                   "type": "span",
                 },
