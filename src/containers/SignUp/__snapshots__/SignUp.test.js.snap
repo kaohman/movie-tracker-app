@@ -29,6 +29,7 @@ ShallowWrapper {
           HOME
         </Link>
         <form
+          autoComplete="off"
           onSubmit={[Function]}
         >
           <label>
@@ -63,6 +64,13 @@ ShallowWrapper {
             type="submit"
           />
         </form>
+        <Link
+          className="sign-up-login-link"
+          replace={false}
+          to="/login"
+        >
+          Login
+        </Link>
         <h3>
           
         </h3>
@@ -84,6 +92,7 @@ ShallowWrapper {
             HOME
           </Link>,
           <form
+            autoComplete="off"
             onSubmit={[Function]}
           >
             <label>
@@ -118,6 +127,13 @@ ShallowWrapper {
               type="submit"
             />
           </form>,
+          <Link
+            className="sign-up-login-link"
+            replace={false}
+            to="/login"
+          >
+            Login
+          </Link>,
           <h3>
             
           </h3>,
@@ -145,6 +161,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "autoComplete": "off",
             "children": Array [
               Array [
                 <label>
@@ -182,7 +199,7 @@ ShallowWrapper {
             ],
             "onSubmit": [Function],
           },
-          "ref": null,
+          "ref": [Function],
           "rendered": Array [
             Object {
               "instance": null,
@@ -307,6 +324,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Login",
+            "className": "sign-up-login-link",
+            "replace": false,
+            "to": "/login",
+          },
+          "ref": null,
+          "rendered": "Login",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": "",
@@ -337,6 +368,7 @@ ShallowWrapper {
             HOME
           </Link>
           <form
+            autoComplete="off"
             onSubmit={[Function]}
           >
             <label>
@@ -371,6 +403,13 @@ ShallowWrapper {
               type="submit"
             />
           </form>
+          <Link
+            className="sign-up-login-link"
+            replace={false}
+            to="/login"
+          >
+            Login
+          </Link>
           <h3>
             
           </h3>
@@ -392,6 +431,7 @@ ShallowWrapper {
               HOME
             </Link>,
             <form
+              autoComplete="off"
               onSubmit={[Function]}
             >
               <label>
@@ -426,6 +466,13 @@ ShallowWrapper {
                 type="submit"
               />
             </form>,
+            <Link
+              className="sign-up-login-link"
+              replace={false}
+              to="/login"
+            >
+              Login
+            </Link>,
             <h3>
               
             </h3>,
@@ -453,6 +500,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "autoComplete": "off",
               "children": Array [
                 Array [
                   <label>
@@ -490,7 +538,7 @@ ShallowWrapper {
               ],
               "onSubmit": [Function],
             },
-            "ref": null,
+            "ref": [Function],
             "rendered": Array [
               Object {
                 "instance": null,
@@ -611,6 +659,20 @@ ShallowWrapper {
               },
             ],
             "type": "form",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Login",
+              "className": "sign-up-login-link",
+              "replace": false,
+              "to": "/login",
+            },
+            "ref": null,
+            "rendered": "Login",
+            "type": [Function],
           },
           Object {
             "instance": null,

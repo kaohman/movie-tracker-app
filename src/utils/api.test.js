@@ -1,7 +1,7 @@
 import API from './api';
 
 describe('API', () => {
-  describe('fetchData', () => {
+  describe('getData', () => {
     let url;
 
     beforeEach(() => {
@@ -11,11 +11,9 @@ describe('API', () => {
     it('should call fetch with the correct parameters', () => {
       const expected = url;
       window.fetch = jest.fn();
-      API.fetchData(url);
+      API.getData(url);
       expect(window.fetch).toHaveBeenCalledWith(expected);
     });
-
-    // happy path when ok data are returned
 
     it('should throw an error if everything is not okay', async () => {
       const expected = TypeError(`Cannot read property 'message' of undefined`);
@@ -23,7 +21,7 @@ describe('API', () => {
         status: 401,
         ok: false
       }));
-      await expect(API.fetchData(url)).rejects.toEqual(expected);
+      await expect(API.getData(url)).rejects.toEqual(expected);
     });
   });
 
@@ -49,15 +47,42 @@ describe('API', () => {
       expect(window.fetch).toHaveBeenCalledWith(expected[0], expected[1]);
     });
 
-    // happy path when ok data are returned
-
     it('should throw an error if everything is not okay', async () => {
-      const expected = TypeError(`Cannot read property 'message' of undefined`);
+      const expected = Error('Error posting data: undefined');
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 401,
         ok: false
       }));
       await expect(API.postData(url)).rejects.toEqual(expected);
+    });
+  });
+
+  describe('deleteData', () => {
+    let url;
+
+    beforeEach(() => {
+      url = '';
+    });
+
+    it('should call fetch with the correct parameters', () => {
+      const expected = ['http://localhost:3000/api/users', {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      }];
+      window.fetch = jest.fn();
+      API.deleteData(url);
+      expect(window.fetch).toHaveBeenCalledWith(expected[0], expected[1]);
+    });
+
+    it('should throw an error if everything is not okay', async () => {
+      const expected = Error('Error deleting data: undefined');
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 401,
+        ok: false
+      }));
+      await expect(API.deleteData(url)).rejects.toEqual(expected);
     });
   });
 });

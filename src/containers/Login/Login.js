@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
-import { setCurrentUser, errorToDisplay } from '../../actions';
+import { setCurrentUser, errorToDisplay, setUserFavorites } from '../../actions';
 import { connect } from 'react-redux';
 
 export class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       user: {
         email: '',
@@ -24,15 +24,25 @@ export class Login extends Component {
 
     try {
       const response = await API.postData(this.state.user, '');
-      await setCurrentUser(response.data)
+      await setCurrentUser({...response.data, favorites: []});
+      await this.fetchFavorites(this.props.user);
       await this.setState({isLoggedIn: true})
     } catch (error) {
       this.formRef.reset()
       errorToDisplay(error)
       await this.setState({
         user: { email: '', password: '' },
-        response: 'User does not exist, please try again or sign up',
+        response: 'Email and password do not match or user does not exist'
       })
+    }
+  }
+
+  fetchFavorites = async (user) => {
+    try {
+      const results = await API.getData(`http://localhost:3000/api/users/${user.id}/favorites`);
+      this.props.setUserFavorites(results.data);
+    } catch (error) {
+      errorToDisplay(error)
     }
   }
 
@@ -50,13 +60,15 @@ export class Login extends Component {
       return (
         <div className='overlay-div'>
           <div className='login-div'>
-            <Link className='home-link' to='/'>HOME</Link>
-            <form onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
+            <Link to='/'>
+              <button className='home-link'></button>
+            </Link>
+            <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
               {inputFields}
               <input className='submit-button' type="submit"/>
             </form>
-            <h3>{response}</h3>
-            <Link id='sign-up-link' to='/signup'>Sign Up Here</Link>
+            <Link className='sign-up-login-link' to='/signup'>Sign Up Here</Link>
+            <p className='response'>{response}</p>
           </div>
         </div>
       )
@@ -64,9 +76,14 @@ export class Login extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  user: state.user,
+})
+
 export const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   errorToDisplay: (message) => dispatch(errorToDisplay(message)),
+  setUserFavorites: (favorites) => dispatch(setUserFavorites(favorites)),
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

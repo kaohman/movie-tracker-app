@@ -1,3 +1,690 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App defaults should match the snapshot with all data passed in 1`] = `undefined`;
+exports[`App defaults should match the snapshot with all data passed in 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App
+    user={
+      Object {
+        "email": "a@a",
+        "favorites": Array [],
+        "id": 1,
+        "name": "Tommy",
+        "password": "password",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <header>
+          <h1>
+            Movie Tracker
+          </h1>
+          <div>
+            <span
+              className="user-name"
+            >
+              Welcome: 
+              Tommy
+              ... 
+            </span>
+            <NavLink
+              activeClassName="selected"
+              aria-current="page"
+              className="nav-links"
+              to="/"
+            >
+              Popular Movies
+            </NavLink>
+            <NavLink
+              activeClassName="selected"
+              aria-current="page"
+              className="nav-links"
+              to="/favorites"
+            >
+              Favorites
+            </NavLink>
+            <button
+              className="nav-links"
+              id="sign-out-button"
+              onClick={[Function]}
+            >
+              Sign Out
+            </button>
+          </div>
+        </header>,
+        <Switch>
+          <Route
+            component={[Function]}
+            path="/"
+          />
+          <Route
+            path="/favorites"
+            render={[Function]}
+          />
+        </Switch>,
+        <Route
+          path="/movies/:id"
+          render={[Function]}
+        />,
+        <Route
+          component={[Function]}
+          path="/login"
+        />,
+        <Route
+          component={[Function]}
+          path="/signup"
+        />,
+      ],
+      "className": "App",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              Movie Tracker
+            </h1>,
+            <div>
+              <span
+                className="user-name"
+              >
+                Welcome: 
+                Tommy
+                ... 
+              </span>
+              <NavLink
+                activeClassName="selected"
+                aria-current="page"
+                className="nav-links"
+                to="/"
+              >
+                Popular Movies
+              </NavLink>
+              <NavLink
+                activeClassName="selected"
+                aria-current="page"
+                className="nav-links"
+                to="/favorites"
+              >
+                Favorites
+              </NavLink>
+              <button
+                className="nav-links"
+                id="sign-out-button"
+                onClick={[Function]}
+              >
+                Sign Out
+              </button>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Movie Tracker",
+            },
+            "ref": null,
+            "rendered": "Movie Tracker",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="user-name"
+                >
+                  Welcome: 
+                  Tommy
+                  ... 
+                </span>,
+                <NavLink
+                  activeClassName="selected"
+                  aria-current="page"
+                  className="nav-links"
+                  to="/"
+                >
+                  Popular Movies
+                </NavLink>,
+                <NavLink
+                  activeClassName="selected"
+                  aria-current="page"
+                  className="nav-links"
+                  to="/favorites"
+                >
+                  Favorites
+                </NavLink>,
+                <button
+                  className="nav-links"
+                  id="sign-out-button"
+                  onClick={[Function]}
+                >
+                  Sign Out
+                </button>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Welcome: ",
+                    "Tommy",
+                    "... ",
+                  ],
+                  "className": "user-name",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Welcome: ",
+                  "Tommy",
+                  "... ",
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "selected",
+                  "aria-current": "page",
+                  "children": "Popular Movies",
+                  "className": "nav-links",
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "Popular Movies",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "selected",
+                  "aria-current": "page",
+                  "children": "Favorites",
+                  "className": "nav-links",
+                  "to": "/favorites",
+                },
+                "ref": null,
+                "rendered": "Favorites",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign Out",
+                  "className": "nav-links",
+                  "id": "sign-out-button",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Sign Out",
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "header",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Route
+              component={[Function]}
+              path="/"
+            />,
+            <Route
+              path="/favorites"
+              render={[Function]}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "path": "/favorites",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "path": "/movies/:id",
+          "render": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "path": "/login",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "path": "/signup",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header>
+            <h1>
+              Movie Tracker
+            </h1>
+            <div>
+              <span
+                className="user-name"
+              >
+                Welcome: 
+                Tommy
+                ... 
+              </span>
+              <NavLink
+                activeClassName="selected"
+                aria-current="page"
+                className="nav-links"
+                to="/"
+              >
+                Popular Movies
+              </NavLink>
+              <NavLink
+                activeClassName="selected"
+                aria-current="page"
+                className="nav-links"
+                to="/favorites"
+              >
+                Favorites
+              </NavLink>
+              <button
+                className="nav-links"
+                id="sign-out-button"
+                onClick={[Function]}
+              >
+                Sign Out
+              </button>
+            </div>
+          </header>,
+          <Switch>
+            <Route
+              component={[Function]}
+              path="/"
+            />
+            <Route
+              path="/favorites"
+              render={[Function]}
+            />
+          </Switch>,
+          <Route
+            path="/movies/:id"
+            render={[Function]}
+          />,
+          <Route
+            component={[Function]}
+            path="/login"
+          />,
+          <Route
+            component={[Function]}
+            path="/signup"
+          />,
+        ],
+        "className": "App",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1>
+                Movie Tracker
+              </h1>,
+              <div>
+                <span
+                  className="user-name"
+                >
+                  Welcome: 
+                  Tommy
+                  ... 
+                </span>
+                <NavLink
+                  activeClassName="selected"
+                  aria-current="page"
+                  className="nav-links"
+                  to="/"
+                >
+                  Popular Movies
+                </NavLink>
+                <NavLink
+                  activeClassName="selected"
+                  aria-current="page"
+                  className="nav-links"
+                  to="/favorites"
+                >
+                  Favorites
+                </NavLink>
+                <button
+                  className="nav-links"
+                  id="sign-out-button"
+                  onClick={[Function]}
+                >
+                  Sign Out
+                </button>
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Movie Tracker",
+              },
+              "ref": null,
+              "rendered": "Movie Tracker",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="user-name"
+                  >
+                    Welcome: 
+                    Tommy
+                    ... 
+                  </span>,
+                  <NavLink
+                    activeClassName="selected"
+                    aria-current="page"
+                    className="nav-links"
+                    to="/"
+                  >
+                    Popular Movies
+                  </NavLink>,
+                  <NavLink
+                    activeClassName="selected"
+                    aria-current="page"
+                    className="nav-links"
+                    to="/favorites"
+                  >
+                    Favorites
+                  </NavLink>,
+                  <button
+                    className="nav-links"
+                    id="sign-out-button"
+                    onClick={[Function]}
+                  >
+                    Sign Out
+                  </button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Welcome: ",
+                      "Tommy",
+                      "... ",
+                    ],
+                    "className": "user-name",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Welcome: ",
+                    "Tommy",
+                    "... ",
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "selected",
+                    "aria-current": "page",
+                    "children": "Popular Movies",
+                    "className": "nav-links",
+                    "to": "/",
+                  },
+                  "ref": null,
+                  "rendered": "Popular Movies",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "selected",
+                    "aria-current": "page",
+                    "children": "Favorites",
+                    "className": "nav-links",
+                    "to": "/favorites",
+                  },
+                  "ref": null,
+                  "rendered": "Favorites",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Sign Out",
+                    "className": "nav-links",
+                    "id": "sign-out-button",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Sign Out",
+                  "type": "button",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "header",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Route
+                component={[Function]}
+                path="/"
+              />,
+              <Route
+                path="/favorites"
+                render={[Function]}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "path": "/",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "path": "/favorites",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "path": "/movies/:id",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "path": "/login",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "path": "/signup",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
