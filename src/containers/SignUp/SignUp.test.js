@@ -41,30 +41,30 @@ describe('Signup', () => {
   })
 
   describe('handleSubmit', () => {
-    it('should sucessfully handle a new user signup', async () => {
+    it('should successfully handle a new user signup', async () => {
       const mockData = {
         id: 1,
         message: "New user created",
         status: "success",
       }
+      wrapper.instance().formRef = {
+        reset: jest.fn()
+      }
       API.postData = jest.fn().mockImplementation(() => {
         return mockData
       })
-      const expected = 'New user created'
+      const expected = 'New user created. Please log in.'
 
       await wrapper.instance().handleSubmit(mockPreventDefault)
 
       expect(wrapper.state('response')).toEqual(expected)
     })
 
-    it('should sucessfully handle a duplicate user signup', async () => {
-      const mockData = {
-        error: "Key email already exists."
-      }
+    it('should successfully handle a duplicate user signup', async () => {
       API.postData = jest.fn().mockImplementation(() => {
-        return mockData
+        return undefined
       })
-      const expected = 'User already created'
+      const expected = 'User email already exists, please try again or log in.'
 
       await wrapper.instance().handleSubmit(mockPreventDefault)
 
@@ -72,11 +72,12 @@ describe('Signup', () => {
     })
 
     it('should unsuccessfully handle user signup', async () => {
-      const expected = {"error": 'Key email already exists.'}
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        status: 404,
-        ok: false,
-      }))
+      const expected = { "message": 'User email already exists, please try again or log in.'}
+      API.postData = jest.fn().mockImplementation(() => {
+        return {
+          message: 'User email already exists, please try again or log in.'
+        }
+      })
       const url = '/api/users/new'
 
       await wrapper.instance().handleSubmit(mockPreventDefault)
