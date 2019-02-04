@@ -36,7 +36,7 @@ const deleteData = async (suffix) => {
   if (response.ok) {
     return await response.json()
   } else {
-    throw Error(`Error deleting data: ${response.error.message}`);
+    throw Error(`Error deleting data: ${response.statusText}`);
   }
 }
 

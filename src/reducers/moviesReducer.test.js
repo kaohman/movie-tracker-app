@@ -8,9 +8,9 @@ describe('moviesReducer', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return state with a new message', () => {
-    const expected = [{title: 'Aquaman', id: 1}, {title: 'Beauty and the Beast', id: 2}];
-    const result = moviesReducer(undefined, actions.setMovies(expected));
+  it('should return state with new movies', () => {
+    const expected = [{title: 'Aquaman', id: 1, movie_id: 1}, {title: 'Beauty and the Beast', id: 2, movie_id: 2}];
+    const result = moviesReducer([], actions.setMovies(expected));
     expect(result).toEqual(expected);
   });
 });
