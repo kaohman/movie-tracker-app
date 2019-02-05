@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export const MovieDetails = (props) => {
@@ -7,9 +6,7 @@ export const MovieDetails = (props) => {
   return (
     <div className='overlay-div'>
       <div className='movie-details-div'>
-        <Link to='/'>
-          <h4 className='return-link'>Return To All Movies</h4>
-        </Link>
+        <h4 onClick={props.history.goBack} className='return-link'>Return To All Movies</h4>
         <img className='movie-backdrop' src={`http://image.tmdb.org/t/p/w1280/${props.backdrop_path}`} alt=""/>
         <div className='movie-text-div'>
           <h2 className='movie-details' id='title-text'>{props.title}</h2>

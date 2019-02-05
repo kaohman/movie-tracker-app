@@ -56,14 +56,14 @@ export class Login extends Component {
     const { isLoggedIn, response, user } = this.state;
     const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))  
     if (isLoggedIn) {
-      return <Redirect to='/' />
+      return <Redirect to={'/'} />
     } else {
       return (
         <div className='overlay-div'>
           <div className='login-div'>
-            <Link to='/'>
-              <button className='home-link'></button>
-            </Link>
+          <Link to='/'>
+            <button className='home-link'></button>
+          </Link>
             <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
               <h4 className='form-title'>Please sign in</h4>
               {inputFields}
