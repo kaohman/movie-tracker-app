@@ -24,7 +24,7 @@
   align-items: $pos;
   margin: 0;
   background: $bg;
-  @include container-sizing(150px, 98vw);
+  @include container-sizing(150px, 96.5vw);
 }
 
 @mixin container-sizing($height, $width) {

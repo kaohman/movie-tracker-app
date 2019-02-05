@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 0 auto 10px auto;
   padding-top: 70px;
+  padding-top: 225px;
   @include display-type(grid, space-between, center);
   @include container-sizing(auto, 90%);
 }
