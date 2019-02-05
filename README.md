@@ -37,7 +37,7 @@ Run npm test from the root directory
 - Regular expressions on email inputs so only valid emails are accepted
 
 ## Contributors
-[Karin Ohman](https://github.com/kaohman)
+[Karin Ohman](https://github.com/kaohman) & 
 [Travis Gee](https://github.com/geet084)
 
 ### Wireframes
