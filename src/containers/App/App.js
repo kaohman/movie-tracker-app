@@ -13,10 +13,9 @@ import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import PropTypes from 'prop-types';
 
 export class App extends Component {
-  
   componentDidMount = async () => {
-    const { errorToDisplay, setMovies, isLoading } = this.props
-    const initialCategory = 'popular'
+    const { errorToDisplay, setMovies, isLoading } = this.props;
+    const initialCategory = 'popular';
     const root = `https://api.themoviedb.org/3/movie/${initialCategory}`;
     const url = `${root}?page=1&api_key=${apiKey}&language=en-US`;
     try {
@@ -28,12 +27,9 @@ export class App extends Component {
     }
   }
 
-  signOut = () => {
-    this.props.setCurrentUser({});
-  }
-
   render() {
-    if (this.props.loading) {
+    const { loading, user, setCurrentUser, movies, history, location } = this.props;
+    if (loading) {
       return (<h1>Loading Movies...</h1>)
     } else {
       return (
@@ -42,28 +38,26 @@ export class App extends Component {
             <h1>Movie Tracker</h1>
             <div className='nav-bar'>
               {
-                this.props.user.name ? <span className="user-name">Welcome {this.props.user.name}</span> : ''
+                user.name ? <span className="user-name">Welcome {user.name}</span> : ''
               }
-              <NavLink exact={true} activeClassName='selected' className='nav-links' to='/'>Popular Movies</NavLink>
+              <NavLink exact activeClassName='selected' className='nav-links' to='/'>Popular Movies</NavLink>
               <NavLink activeClassName='selected' className='nav-links' to='/favorites'>Favorites</NavLink>
               {
-                this.props.user.name ?
-                  <button className='nav-links' id='sign-out-button' onClick={this.signOut}>Sign Out</button> :
+                user.name ?
+                  <button className='nav-links' id='sign-out-button' onClick={() => setCurrentUser({})}>Sign Out</button> :
                   <NavLink className='nav-links' to="/login">User Login</NavLink>
               }
             </div>
           </header>
             <Route exact path='/' component={Movies} />
             <Route path='/favorites' render={() => {
-              return <Movies location={this.props.location} />
+              return <Movies location={location} />
             }} />
             <Route path='/movies/:id' render={({ match }) => {
-              console.log(this.props.movies)
               const { id } = match.params;
-              const movie = this.props.movies.find(movie => movie.id === parseInt(id))
-              
+              const movie = movies.find(movie => movie.id === parseInt(id))
               if (movie) {
-                return <MovieDetails history={this.props.history} {...movie} />
+                return <MovieDetails history={history} {...movie} />
               } else {
                 return <h4>No movie to show</h4>
               }

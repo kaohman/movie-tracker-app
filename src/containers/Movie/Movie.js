@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export class Movie extends Component {
-
   handleClick = async () => {
     const { user, toggleFavorite, errorToDisplay } = this.props;
     if (user.favorites) {

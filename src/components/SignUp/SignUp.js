@@ -4,8 +4,8 @@ import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
 
 class SignUp extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       user: {
         name: '',
@@ -25,8 +25,7 @@ class SignUp extends Component {
     } catch (error) {
       message = 'User email already exists, please try again or log in.';
     }
-
-    this.formRef.reset()
+    this.formRef.reset();
     this.setState({
       user: {
         name: '',
@@ -45,7 +44,7 @@ class SignUp extends Component {
   }
 
   render() {
-    const { user, response } = this.state
+    const { user, response } = this.state;
     const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
     return (
       <div className='overlay-div'>
