@@ -49,6 +49,9 @@ export class Login extends Component {
 
   handleChange = (e) => {
     let { name, value } = e.target;
+    if (name === 'email') {
+      value = value.toLowerCase();
+    }
     this.setState({user: {...this.state.user, [name]: value }})
   }
   

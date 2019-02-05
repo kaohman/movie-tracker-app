@@ -32,6 +32,7 @@ Jest and Enzyme for front-end testing.
 Run npm test from the root directory
 
 #### Enhancements
+- Add favorites button to movie details
 - Deploy website on Heroku
 - Functionality to allow user to remain signed in on page refresh
 - Regular expressions on email inputs so only valid emails are accepted
