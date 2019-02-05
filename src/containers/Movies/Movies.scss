@@ -1,32 +1,28 @@
 #movie-container {
-  width: 90%;
-  margin: 0 auto 10px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-content: space-between;
   grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0 auto 10px auto;
   padding-top: 70px;
+  @include display-type(grid, space-between, center);
+  @include container-sizing(auto, 90%);
 }
 
 .faves-login {
-  text-align: center;
-  color: white;
+  color: $main-text-color;
   font-size: 22px;
-  font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
 .login {
   text-decoration: none;
-  color: lightskyblue;
-  font-family: 'Montserrat', sans-serif;
+  color: $faves-page-login-color;
   &:hover {
-    color: purple;
+    color: $hvr-text-color;
   }
 }
 
 .no-faves {
-  text-align: center;
-  color: white;
+  color: $main-text-color;
   font-size: 22px;
-  font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }

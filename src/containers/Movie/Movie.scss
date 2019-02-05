@@ -1,19 +1,17 @@
 .movie-card {
   margin: 0 auto;
-  height: 450px;
-  width: 300px;
-  position: relative;
   top: -32px;
-  
+  @include container-sizing(450px, 300px);
+  @include position-el(relative, 0);  
   &:hover {
-    box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.8);
+    box-shadow: $movie-card-hover;
   }
 }
 
 .movie-image {
-    position: relative;
-    top: -32px;
-  width: 300px;
+  top: -32px;
+  @include position-el(relative, 0);
+  @include container-sizing(auto, 300px);
 }
 
 .placeholder {
@@ -21,20 +19,16 @@
 }
 
 .favorite-icon {
-  z-index: 2;
-  border: none;
   background: url('./images/star-outline.png');
   background-size: cover;
-  position: relative;
+  border: none;
   top: 10px;
   right: -260px;
-  width: 30px;
-  height: 30px;
-
+  @include container-sizing(30px, 30px);
+  @include position-el(relative, 2);
   &:focus {
     outline: none;
   }
-
   &:hover {
     background: url('./images/star-yellow.png');
     background-size: cover;
