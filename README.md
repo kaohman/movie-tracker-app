@@ -41,6 +41,6 @@ Run npm test from the root directory
 [Travis Gee](https://github.com/geet084)
 
 ### Wireframes
-![wireframe 1]('./public/assets/wireframe1.png')
-![wireframe 2]('./public/assets/wireframe2.png')
-![wireframe 3]('./public/assets/wireframe3.png')
+![wireframe 1](./public/assets/wireframe1.png)
+![wireframe 2](./public/assets/wireframe2.png)
+![wireframe 3](./public/assets/wireframe3.png)
