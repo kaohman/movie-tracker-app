@@ -36,7 +36,7 @@ Run npm test from the root directory
 - Functionality to allow user to remain signed in on page refresh
 - Regular expressions on email inputs so only valid emails are accepted
 
-## Contributors
+### Contributors
 [Karin Ohman](https://github.com/kaohman) & 
 [Travis Gee](https://github.com/geet084)
 
