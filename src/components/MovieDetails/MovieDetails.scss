@@ -26,6 +26,10 @@
   margin: 20px;
   position: absolute;
   z-index: 14;
+  font-family: 'Montserrat', sans-serif;
+  &:hover {
+    color: lightskyblue;
+  }
 }
 
 .movie-text-div {
@@ -43,6 +47,7 @@
 
 .movie-details {
   color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #title-text {

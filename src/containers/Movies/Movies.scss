@@ -6,3 +6,26 @@
   justify-content: space-between;
   grid-gap: 20px;
 }
+
+.faves-login {
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login {
+  text-decoration: none;
+  color: lightskyblue;
+  font-family: 'Montserrat', sans-serif;
+  &:hover {
+    color: purple;
+  }
+}
+
+.no-faves {
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+}
