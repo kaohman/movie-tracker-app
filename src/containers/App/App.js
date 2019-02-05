@@ -7,7 +7,7 @@ import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
 import SignUp from '../../components/SignUp/SignUp';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import PropTypes from 'prop-types';
@@ -49,10 +49,12 @@ export class App extends Component {
               }
             </div>
           </header>
-            <Route exact path='/' component={Movies} />
+          <Switch>
+            <Route path='/' component={Movies} />
             <Route path='/favorites' render={() => {
               return <Movies location={location} />
             }} />
+          </Switch>
             <Route path='/movies/:id' render={({ match }) => {
               const { id } = match.params;
               const movie = movies.find(movie => movie.id === parseInt(id))
