@@ -31,9 +31,15 @@ h1  {
   margin: 10px;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
+  padding: 0 2px;
 
   &:hover {
     color: purple;
+    background-color: white;
+    opacity: .6;
+    border-radius: 15px;
+    padding: 0 2px;
+    box-shadow: 0px 0px 15px 15px white;
   }
 }
 

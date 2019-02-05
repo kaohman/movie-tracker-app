@@ -65,6 +65,9 @@ export class Movie extends Component {
               }
             ></button>
         }
+        {
+          !user.favorites && <div className='placeholder'></div>
+        }
         <Link to={`/movies/${movie_id}`}>
           <img className='movie-image' src={`http://image.tmdb.org/t/p/w342/${poster_path}`} alt="a" />
         </Link>
