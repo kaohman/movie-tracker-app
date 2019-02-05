@@ -1,5 +1,6 @@
 @import './components/NotFound/NotFound.scss';
-@import './components/SignUp/SignUp.scss';
+@import './variables.scss';
+@import './mixins.scss';
 @import './containers/Login/Login.scss';
 @import './containers/Movies/Movies.scss';
 @import './components/MovieDetails/MovieDetails.scss';

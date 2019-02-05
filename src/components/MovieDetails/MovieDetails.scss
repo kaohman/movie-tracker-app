@@ -1,58 +1,44 @@
 .movie-details-div {
   background-color: white;
-  position: fixed;
-  margin: 10px auto;
-  width: 1000px;
-  height: 563px;
   border: 1px solid black;
-  z-index: 12;
-  left: 50%;
-  top: 50%; 
   margin-left: -500px;
   margin-top: -250px;
-  position: fixed;
+  left: 50%;
+  top: 50%; 
   box-shadow: 2px 2px 8px black;
+  @include container-sizing(563px, 1000px);
+  @include position-el(fixed, 12);
 }
 
 .movie-backdrop {
-  position: absolute;
   width: 998px;
-  z-index: 13;
+  @include position-el(absolute, 13);
 }
 
 .return-link {
-  text-shadow: 2px 2px 8px black;
-  color: white;
+  color: $main-text-color;
   margin: 20px;
-  position: absolute;
-  z-index: 14;
-  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px 8px black;
+  @include position-el(absolute, 14);
   &:hover {
-    color: purple;
-    background-color: white;
-    opacity: .8;
-    border-radius: 15px;
-    
-    box-shadow: 0px 0px 7px 7px white;
+    @include text-hover-bg;
   }
 }
 
 .movie-text-div {
-  height: 275px;
-  position: relative;
-  top: 286px;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 14;
+  height: 275px;
   padding: 20px;
+  top: 286px;
+  @include position-el(relative, 14);
 }
 
 .movie-details-div {
-  z-index: 15;
+  @include position-el(relative, 15);
 }
 
 .movie-details {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
+  color: $main-text-color;
 }
 
 #title-text {

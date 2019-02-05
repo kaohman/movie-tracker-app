@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const MovieDetails = (props) => {
+  console.log(props)
   return (
     <div className='overlay-div'>
       <div className='movie-details-div'>

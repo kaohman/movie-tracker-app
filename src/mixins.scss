@@ -1,0 +1,33 @@
+@mixin display-type($disp, $jc, $ac) {
+  display: $disp;
+  justify-content: $jc;
+  align-items: $ac;
+}
+
+@mixin text-hover-bg {
+  &:hover {
+    color: $hvr-text-color;
+    background-color: $hvr-bg-color;
+    opacity: .6;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 10px $hvr-bg-color;
+  }
+}
+
+@mixin position-el($pos, $zNum) {
+  position: $pos;
+  z-index: $zNum;
+}
+
+@mixin header-bg-styling($bg, $pos) {
+  display: flex;
+  align-items: $pos;
+  margin: 0;
+  background: $bg;
+  @include container-sizing(150px, 98vw);
+}
+
+@mixin container-sizing($height, $width) {
+  height: $height;
+  width: $width;
+}

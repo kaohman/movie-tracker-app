@@ -2,72 +2,60 @@
 *:after,
 *:before {
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif; 
+  font-family: $main-page-font;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #1e1e1e;
   background-image: url('./images/main-bg.jpg');
   background-size: 1440px 100vh;
   background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  color: white;
+  color: $main-text-color;
   padding: 40px 6% 20px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include display-type(flex, space-between, center);
 }
 
 h1  {
-  font-family: 'Righteous', cursive;
-  text-transform: uppercase;
+  font-family: $movie-tracker-font;
   font-size: 50px;
+  text-transform: uppercase;
 }
 
 .nav-links {
-  color: white;
+  color: $main-text-color;
   font-size: 20px;
   margin: 10px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
   padding: 0 2px;
+  text-decoration: none;
 
   &:hover {
-    color: purple;
-    background-color: white;
-    opacity: .6;
-    border-radius: 15px;
-    padding: 0 2px;
-    box-shadow: 0px 0px 15px 15px white;
+    @include text-hover-bg
   }
 }
 
 #sign-out-button {
-  font-size: 20px;
   border: none;
   background: none;
-
+  font-size: 20px;
   &:hover {
     cursor: pointer;
   }
-
   &:focus {
     outline: none;
   }
 }
 
 .user-name {
-  font-size: 20px;
+  color: $hvr-text-color;
   border: none;
   background: none;
-  color: purple;
-  margin-right: 20px;
+  font-size: 20px;
   font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
+  margin-right: 20px;
 }
 
 .nav-bar {
@@ -75,27 +63,16 @@ h1  {
 }
 
 .header-bg {
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 25px;
   font-size: 4rem;
-  margin: 0;
-  height: 150px;
-  width: 100vw;
-  background: linear-gradient(166deg, #660677 5%, #a334b6 17%, #b460c2 21%, #d8a6e1 32%, #e8b5f1 40%, rgba(125, 185, 232, 0) 53%);
+  padding: 0 0 0 25px;
+  @include header-bg-styling($left-header-bg, center);
 }
 
 .header-bg:after {
   content: '';
-  position: absolute;
-  display: flex;
-  align-items: flex-end;
   justify-content: flex-end;
-  margin: 0;
-  z-index: -1;
-  height: 150px;
-  width: 100vw;
-  background: linear-gradient(346deg, #660677 7%, #a334b6 19%, #b460c2 26%, rgba(216, 166, 225, 0.8) 32%, rgba(232, 181, 241, 0.7) 39%, rgba(125, 185, 232, 0) 54%);
+  @include header-bg-styling($right-header-bg, flex-end);
+  @include position-el(absolute, -1);
 }
 
 .selected {
