@@ -38,7 +38,7 @@ export class App extends Component {
     } else {
       return (
         <div className="App">
-          <header>
+          <header className='header-bg'>
             <h1>Movie Tracker</h1>
             <div>
               {
