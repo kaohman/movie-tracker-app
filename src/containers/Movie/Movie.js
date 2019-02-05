@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export class Movie extends Component {
-
   handleClick = async () => {
     const { user, toggleFavorite, errorToDisplay } = this.props;
     if (user.favorites) {
@@ -91,7 +90,7 @@ Movie.propTypes = {
 Movie.defaultProps = {
   movie_id: 0,
   poster_path: '',
-  title: PropTypes.string,
+  title: '',
   release_date: '',
   vote_average: 0,
   overview: '',
