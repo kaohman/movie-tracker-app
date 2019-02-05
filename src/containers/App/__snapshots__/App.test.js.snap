@@ -35,11 +35,15 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <header>
+        <header
+          className="header-bg"
+        >
           <h1>
             Movie Tracker
           </h1>
-          <div>
+          <div
+            className="nav-bar"
+          >
             <span
               className="user-name"
             >
@@ -107,7 +111,9 @@ ShallowWrapper {
             <h1>
               Movie Tracker
             </h1>,
-            <div>
+            <div
+              className="nav-bar"
+            >
               <span
                 className="user-name"
               >
@@ -139,6 +145,7 @@ ShallowWrapper {
               </button>
             </div>,
           ],
+          "className": "header-bg",
         },
         "ref": null,
         "rendered": Array [
@@ -189,6 +196,7 @@ ShallowWrapper {
                   Sign Out
                 </button>,
               ],
+              "className": "nav-bar",
             },
             "ref": null,
             "rendered": Array [
@@ -351,11 +359,15 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <header>
+          <header
+            className="header-bg"
+          >
             <h1>
               Movie Tracker
             </h1>
-            <div>
+            <div
+              className="nav-bar"
+            >
               <span
                 className="user-name"
               >
@@ -423,7 +435,9 @@ ShallowWrapper {
               <h1>
                 Movie Tracker
               </h1>,
-              <div>
+              <div
+                className="nav-bar"
+              >
                 <span
                   className="user-name"
                 >
@@ -455,6 +469,7 @@ ShallowWrapper {
                 </button>
               </div>,
             ],
+            "className": "header-bg",
           },
           "ref": null,
           "rendered": Array [
@@ -505,6 +520,7 @@ ShallowWrapper {
                     Sign Out
                   </button>,
                 ],
+                "className": "nav-bar",
               },
               "ref": null,
               "rendered": Array [

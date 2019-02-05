@@ -33,6 +33,11 @@ ShallowWrapper {
           autoComplete="off"
           onSubmit={[Function]}
         >
+          <h4
+            className="form-title"
+          >
+            Please sign up
+          </h4>
           <label>
             name
             <input
@@ -99,6 +104,11 @@ ShallowWrapper {
             autoComplete="off"
             onSubmit={[Function]}
           >
+            <h4
+              className="form-title"
+            >
+              Please sign up
+            </h4>
             <label>
               name
               <input
@@ -180,6 +190,11 @@ ShallowWrapper {
           "props": Object {
             "autoComplete": "off",
             "children": Array [
+              <h4
+                className="form-title"
+              >
+                Please sign up
+              </h4>,
               Array [
                 <label>
                   name
@@ -218,6 +233,18 @@ ShallowWrapper {
           },
           "ref": [Function],
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Please sign up",
+                "className": "form-title",
+              },
+              "ref": null,
+              "rendered": "Please sign up",
+              "type": "h4",
+            },
             Object {
               "instance": null,
               "key": "name",
@@ -390,6 +417,11 @@ ShallowWrapper {
             autoComplete="off"
             onSubmit={[Function]}
           >
+            <h4
+              className="form-title"
+            >
+              Please sign up
+            </h4>
             <label>
               name
               <input
@@ -456,6 +488,11 @@ ShallowWrapper {
               autoComplete="off"
               onSubmit={[Function]}
             >
+              <h4
+                className="form-title"
+              >
+                Please sign up
+              </h4>
               <label>
                 name
                 <input
@@ -537,6 +574,11 @@ ShallowWrapper {
             "props": Object {
               "autoComplete": "off",
               "children": Array [
+                <h4
+                  className="form-title"
+                >
+                  Please sign up
+                </h4>,
                 Array [
                   <label>
                     name
@@ -575,6 +617,18 @@ ShallowWrapper {
             },
             "ref": [Function],
             "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Please sign up",
+                  "className": "form-title",
+                },
+                "ref": null,
+                "rendered": "Please sign up",
+                "type": "h4",
+              },
               Object {
                 "instance": null,
                 "key": "name",
