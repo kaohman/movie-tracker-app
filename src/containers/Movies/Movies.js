@@ -34,13 +34,13 @@ export class Movies extends Component {
 Movies.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
   favorites: PropTypes.arrayOf(PropTypes.object),
-  location: PropTypes.string,
+  location: PropTypes.object,
 }
 
 Movies.defaultProps = {
   movies: [{}],
   favorites: [{}],
-  location: ''
+  location: {},
 }
 
 export const mapStateToProps = (state) => ({
