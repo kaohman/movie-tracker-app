@@ -4,6 +4,12 @@ exports[`App defaults should match the snapshot with all data passed in 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
+    loading={false}
+    movies={
+      Array [
+        Object {},
+      ]
+    }
     user={
       Object {
         "email": "a@a",

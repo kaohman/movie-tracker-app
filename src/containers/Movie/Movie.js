@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { toggleFavorite, errorToDisplay } from '../../actions';
 import { connect } from 'react-redux';
 import API from '../../utils/api';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class Movie extends Component {
 
@@ -70,6 +71,30 @@ export class Movie extends Component {
       </div>
     )
   }
+}
+
+Movie.propTypes = {
+  movie_id: PropTypes.number,
+  poster_path: PropTypes.string,
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  release_date: PropTypes.string,
+  vote_average: PropTypes.number,
+  overview: PropTypes.string,
+  user: PropTypes.arrayOf(PropTypes.object),
+  toggleFavorite: PropTypes.func,
+  errorToDisplay: PropTypes.func,
+}
+
+Movie.defaultProps = {
+  movie_id: 0,
+  poster_path: '',
+  title: PropTypes.string,
+  poster_path: '',
+  release_date: '',
+  vote_average: 0,
+  overview: '',
+  user: [{}],
 }
 
 export const mapStateToProps = (state) => ({
