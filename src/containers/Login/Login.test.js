@@ -81,6 +81,18 @@ describe('Login', () => {
 
       expect(wrapper.state('isLoggedIn')).toEqual(expected)
     })
+
+    it.skip('should call handleSubmit when form is submitted', () => {
+      wrapper.setState({
+        user: {
+          name: 'Aquaman',
+          email: 'a@a.com',
+        },
+      })
+      wrapper.instance().handleSubmit = jest.fn();
+      wrapper.find('form').simulate('submit', mockPreventDefault);
+      expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
+    })
   })
 
   describe('mapDispatchToProps', () => {

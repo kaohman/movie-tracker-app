@@ -80,7 +80,7 @@ Movie.propTypes = {
   release_date: PropTypes.string,
   vote_average: PropTypes.number,
   overview: PropTypes.string,
-  user: PropTypes.arrayOf(PropTypes.object),
+  user: PropTypes.object,
   toggleFavorite: PropTypes.func,
   errorToDisplay: PropTypes.func,
 }
@@ -92,7 +92,7 @@ Movie.defaultProps = {
   release_date: '',
   vote_average: 0,
   overview: '',
-  user: [{}],
+  user: {},
 }
 
 export const mapStateToProps = (state) => ({

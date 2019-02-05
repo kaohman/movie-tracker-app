@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie defaults should match the snapshot with all data passed in 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Movie
+    movie_id={0}
+    overview="Text about movie..."
+    poster_path="url/2"
+    release_date="02-03-2019"
+    title="Aquaman"
+    user={
+      Object {
+        "email": "a@a",
+        "favorites": Array [],
+        "id": 1,
+        "name": "Tommy",
+        "password": "password",
+      }
+    }
+    vote_average={6.9}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="favorite-icon"
+          onClick={[Function]}
+        />,
+        <Link
+          replace={false}
+          to="/movies/0"
+        >
+          <img
+            alt="a"
+            className="movie-image"
+            src="http://image.tmdb.org/t/p/w342/url/2"
+          />
+        </Link>,
+      ],
+      "className": "movie-card",
+      "id": 0,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "favorite-icon",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <img
+            alt="a"
+            className="movie-image"
+            src="http://image.tmdb.org/t/p/w342/url/2"
+          />,
+          "replace": false,
+          "to": "/movies/0",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "a",
+            "className": "movie-image",
+            "src": "http://image.tmdb.org/t/p/w342/url/2",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="favorite-icon"
+            onClick={[Function]}
+          />,
+          <Link
+            replace={false}
+            to="/movies/0"
+          >
+            <img
+              alt="a"
+              className="movie-image"
+              src="http://image.tmdb.org/t/p/w342/url/2"
+            />
+          </Link>,
+        ],
+        "className": "movie-card",
+        "id": 0,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "favorite-icon",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <img
+              alt="a"
+              className="movie-image"
+              src="http://image.tmdb.org/t/p/w342/url/2"
+            />,
+            "replace": false,
+            "to": "/movies/0",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "a",
+              "className": "movie-image",
+              "src": "http://image.tmdb.org/t/p/w342/url/2",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
