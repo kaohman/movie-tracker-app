@@ -54,6 +54,7 @@ ShallowWrapper {
               activeClassName="selected"
               aria-current="page"
               className="nav-links"
+              exact={true}
               to="/"
             >
               Popular Movies
@@ -124,6 +125,7 @@ ShallowWrapper {
                 activeClassName="selected"
                 aria-current="page"
                 className="nav-links"
+                exact={true}
                 to="/"
               >
                 Popular Movies
@@ -176,6 +178,7 @@ ShallowWrapper {
                   activeClassName="selected"
                   aria-current="page"
                   className="nav-links"
+                  exact={true}
                   to="/"
                 >
                   Popular Movies
@@ -227,6 +230,7 @@ ShallowWrapper {
                   "aria-current": "page",
                   "children": "Popular Movies",
                   "className": "nav-links",
+                  "exact": true,
                   "to": "/",
                 },
                 "ref": null,
@@ -378,6 +382,7 @@ ShallowWrapper {
                 activeClassName="selected"
                 aria-current="page"
                 className="nav-links"
+                exact={true}
                 to="/"
               >
                 Popular Movies
@@ -448,6 +453,7 @@ ShallowWrapper {
                   activeClassName="selected"
                   aria-current="page"
                   className="nav-links"
+                  exact={true}
                   to="/"
                 >
                   Popular Movies
@@ -500,6 +506,7 @@ ShallowWrapper {
                     activeClassName="selected"
                     aria-current="page"
                     className="nav-links"
+                    exact={true}
                     to="/"
                   >
                     Popular Movies
@@ -551,6 +558,7 @@ ShallowWrapper {
                     "aria-current": "page",
                     "children": "Popular Movies",
                     "className": "nav-links",
+                    "exact": true,
                     "to": "/",
                   },
                   "ref": null,

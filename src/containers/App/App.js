@@ -7,6 +7,7 @@ import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
+import NotFound from '../../components/NotFound/NotFound';
 import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
 import SignUp from '../../components/SignUp/SignUp';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
@@ -50,10 +51,11 @@ export class App extends Component {
             </div>
           </header>
           <Switch>
-            <Route path='/' component={Movies} />
+            <Route exact path='/' component={Movies} />
             <Route path='/favorites' render={() => {
               return <Movies location={location} />
             }} />
+            <Route path='*' component={NotFound} />
           </Switch>
             <Route path='/movies/:id' render={({ match }) => {
               const { id } = match.params;
@@ -61,7 +63,7 @@ export class App extends Component {
               if (movie) {
                 return <MovieDetails history={history} {...movie} />
               } else {
-                return <h4>No movie to show</h4>
+                return <NotFound />
               }
             }} />
           <Route path='/login' component={Login} />

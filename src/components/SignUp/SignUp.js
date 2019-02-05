@@ -4,8 +4,8 @@ import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
 
 class SignUp extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       user: {
         name: '',
@@ -19,6 +19,7 @@ class SignUp extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     let message;
+    this.validateEmail(this.state.user.email)
     try {
       const response = await API.postData(this.state.user, '/new');
       message = `${response.message}. Please log in.`
@@ -36,11 +37,20 @@ class SignUp extends Component {
     })
   }
 
+  validateEmail = (email) => {
+    // one @ symbol,
+    //  at least one . after @ symbol
+    //  . cannot be next to another .
+    // . cannot be at beginning or end of string
+    // let regex = \@
+  }
+
   handleChange = (e) => {
     let { name, value } = e.target;
-    this.setState({
-      user: {...this.state.user, [name]: value}
-    });
+    if (name === 'email') {
+      value = value.toLowerCase();
+    }
+    this.setState({user: {...this.state.user, [name]: value}});
   }
 
   render() {
