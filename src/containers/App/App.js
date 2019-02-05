@@ -33,7 +33,6 @@ export class App extends Component {
   }
 
   render() {
-    console.log(this.props.history)
     if (this.props.loading) {
       return (<h1>Loading Movies...</h1>)
     } else {
@@ -45,7 +44,7 @@ export class App extends Component {
               {
                 this.props.user.name ? <span className="user-name">Welcome {this.props.user.name}</span> : ''
               }
-              <NavLink activeClassName='selected' className='nav-links' to='/'>Popular Movies</NavLink>
+              <NavLink exact={true} activeClassName='selected' className='nav-links' to='/'>Popular Movies</NavLink>
               <NavLink activeClassName='selected' className='nav-links' to='/favorites'>Favorites</NavLink>
               {
                 this.props.user.name ?
@@ -59,15 +58,18 @@ export class App extends Component {
               return <Movies location={this.props.location} />
             }} />
             <Route path='/movies/:id' render={({ match }) => {
+              console.log(this.props.movies)
               const { id } = match.params;
               const movie = this.props.movies.find(movie => movie.id === parseInt(id))
               
               if (movie) {
                 return <MovieDetails history={this.props.history} {...movie} />
+              } else {
+                return <h4>No movie to show</h4>
               }
             }} />
-          <Route path='/login' render={() => <Login history={this.props.history} />} />
-          <Route path='/signup' render={() => <SignUp history={this.props.history} />} />
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={SignUp} />
         </div>
       )
     }

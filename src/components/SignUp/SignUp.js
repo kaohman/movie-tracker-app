@@ -50,7 +50,9 @@ class SignUp extends Component {
     return (
       <div className='overlay-div'>
         <div className='login-div'>
-          <button onClick={() => this.props.history.go(-2)} className='home-link'></button>
+        <Link to='/'>
+          <button className='home-link'></button>
+        </Link>
           <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
             <h4 className='form-title'>Please sign up</h4>
             {inputFields}
