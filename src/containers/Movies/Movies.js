@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Movie from '../Movie/Movie';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class Movies extends Component {
   
@@ -28,6 +29,18 @@ export class Movies extends Component {
       )
     }
   }
+}
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object),
+  favorites: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.string,
+}
+
+Movies.defaultProps = {
+  movies: [{}],
+  favorites: [{}],
+  location: ''
 }
 
 export const mapStateToProps = (state) => ({

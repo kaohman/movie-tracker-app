@@ -4,6 +4,7 @@ import API from '../../utils/api';
 import buildInput from '../../utils/helpers';
 import { setCurrentUser, errorToDisplay, setUserFavorites } from '../../actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class Login extends Component {
   constructor(props) {
@@ -74,6 +75,17 @@ export class Login extends Component {
       )
     }
   }
+}
+
+Login.propTypes = {
+  user: PropTypes.object,
+  setCurrentUser: PropTypes.func,
+  errorToDisplay: PropTypes.func,
+  setUserFavorites: PropTypes.func,
+}
+
+Login.defaultProps = {
+  user: {},
 }
 
 export const mapStateToProps = (state) => ({

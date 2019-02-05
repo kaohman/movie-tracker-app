@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const MovieDetails = (props) => {
   return (
@@ -18,6 +19,22 @@ export const MovieDetails = (props) => {
       </div>
     </div>
   )
+}
+
+MovieDetails.propTypes = {
+  backdrop_path: PropTypes.string,
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  release_date: PropTypes.string,
+  vote_average: PropTypes.number,
+}
+
+MovieDetails.defaultProps = {
+  backdrop_path: '',
+  title: '',
+  overview: '',
+  release_date: '',
+  vote_average: 0,
 }
 
 export default MovieDetails;

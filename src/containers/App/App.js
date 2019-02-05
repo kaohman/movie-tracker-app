@@ -8,8 +8,9 @@ import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
 import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
-import SignUp from '../SignUp/SignUp';
+import SignUp from '../../components/SignUp/SignUp';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   
@@ -72,6 +73,22 @@ export class App extends Component {
       )
     }
   }
+}
+
+App.propTypes = {
+  user: PropTypes.object,
+  movies: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
+  setMovies: PropTypes.func,
+  setCurrentUser: PropTypes.func,
+  errorToDisplay: PropTypes.func,
+  isLoading: PropTypes.func,
+}
+
+App.defaultProps = {
+  user: {},
+  movies: [{}],
+  loading: false,
 }
 
 export const mapStateToProps = (state) => ({
