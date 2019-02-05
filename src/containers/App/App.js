@@ -40,7 +40,7 @@ export class App extends Component {
         <div className="App">
           <header className='header-bg'>
             <h1>Movie Tracker</h1>
-            <div>
+            <div className='nav-bar'>
               {
                 this.props.user.name ? <span className="user-name">Welcome {this.props.user.name}</span> : ''
               }

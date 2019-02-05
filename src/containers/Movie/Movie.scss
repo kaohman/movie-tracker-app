@@ -21,11 +21,12 @@
 }
 
 .favorite-icon {
+  z-index: 2;
   border: none;
   background: url('./images/star-outline.png');
   background-size: cover;
   position: relative;
-  top: 40px;
+  top: 10px;
   right: -260px;
   width: 30px;
   height: 30px;
