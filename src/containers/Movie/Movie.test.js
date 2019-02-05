@@ -166,19 +166,18 @@ describe('Movie', () => {
       );
     });
 
-    it('should call API.postData with the correct params', () => {
+    it('should call API.postData with the correct params', async () => {
       const expected = [{ ...mockMovie, user_id: 1 }, '/favorites/new'];
-      wrapper.instance().addToUserFavorites(expected[0]);
+      await wrapper.instance().addToUserFavorites(expected[0]);
       expect(API.postData).toHaveBeenCalledWith(expected[0], expected[1]);
     });
 
-    it.skip('should call errorToDisplay with the correct parameters if everything is not okay', () => {
+    it.skip('should call errorToDisplay with the correct parameters if everything is not okay', async () => {
       const expected = 'Error posting data';
       API.postData = jest.fn().mockImplementation(() => Promise.reject({
-        status: 401,
         ok: false
       }));
-      wrapper.instance().addToUserFavorites(mockMovie);
+      await wrapper.instance().addToUserFavorites(mockMovie);
       expect(mockErrorToDisplay).toHaveBeenCalledWith(expected);
     });
   });
@@ -216,14 +215,19 @@ describe('Movie', () => {
       );
     });
   
-    it('should call API.deleteData with the correct params', () => {
+    it('should call API.deleteData with the correct params', async () => {
       const expected = '/1/favorites/0'
-      wrapper.instance().removeFromUserFavorites();
+      await wrapper.instance().removeFromUserFavorites();
       expect(API.deleteData).toHaveBeenCalledWith(expected);
     });
   
-    it.skip('should call errorToDisplay with the correct parameters if everything is not okay', () => {
-  
+    it.skip('should call errorToDisplay with the correct parameters if everything is not okay', async () => {
+      const expected = 'Error deleting data';
+      API.deleteData = jest.fn().mockImplementation(() => {
+        throw new Error(expected)
+      });
+      await wrapper.instance().removeFromUserFavorites();
+      expect(mockErrorToDisplay).toHaveBeenCalledWith(expected);
     });
   });
 

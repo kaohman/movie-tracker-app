@@ -7,7 +7,7 @@ import API from '../../utils/api';
 import { apiKey } from '../../utils/api-key';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
-import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import SignUp from '../../components/SignUp/SignUp';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import PropTypes from 'prop-types';
@@ -33,6 +33,7 @@ export class App extends Component {
   }
 
   render() {
+    console.log(this.props.history)
     if (this.props.loading) {
       return (<h1>Loading Movies...</h1>)
     } else {
@@ -53,22 +54,20 @@ export class App extends Component {
               }
             </div>
           </header>
-          <Switch>
-            <Route path='/' component={Movies} />
+            <Route exact path='/' component={Movies} />
             <Route path='/favorites' render={() => {
               return <Movies location={this.props.location} />
             }} />
-          </Switch>
             <Route path='/movies/:id' render={({ match }) => {
               const { id } = match.params;
               const movie = this.props.movies.find(movie => movie.id === parseInt(id))
               
               if (movie) {
-                return <MovieDetails {...movie} />
+                return <MovieDetails history={this.props.history} {...movie} />
               }
             }} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={SignUp} />
+          <Route path='/login' render={() => <Login history={this.props.history} />} />
+          <Route path='/signup' render={() => <SignUp history={this.props.history} />} />
         </div>
       )
     }
