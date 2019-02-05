@@ -10,7 +10,7 @@ export class Movies extends Component {
     const { favorites, movies, location } = this.props;
     if (favorites && location.pathname.includes('favorites')) {
       return (
-        <div id='movie-container'>
+        <div id='movie-container' >
           {
             favorites.length ? favorites.map(movie => <Movie {...movie} key={movie.id} />) :
             <h4 className='no-faves'>No favorites to show... why not favorite some movies?</h4>

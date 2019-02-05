@@ -1,51 +1,41 @@
 .overlay-div {
   background-color: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  z-index: 11;
-  position: fixed;
   left: 0;
   top: 0;
+  @include container-sizing(100%, 100%);
+  @include position-el(fixed, 11);
 }
 
 .login-div {
-  background-color: #4a4a4a;
-  color: white;
-  position: fixed;
-  margin: 10px auto;
-  width: 325px;
-  height: 400px;
-  padding: 20px;
+  background-color: $login-signup-bg;
   border: 1px solid black;
-  z-index: 12;
-  left: 50%;
+  color: $main-text-color;
+  padding: 20px;
   margin-left: -162.5px;
   margin-top: -200px;
-  position: fixed;
+  left: 50%;
   top: 50%; 
   box-shadow: 2px 2px 8px black;
+  @include position-el(fixed, 12);
+  @include container-sizing(400px, 325px);
 }
 
 form {
-  width: 200px;
   margin: auto;
+  @include container-sizing(auto, 200px);
 }
 
 label {
-  text-transform: capitalize;
   display: block;
-  margin: 15px 0 5px 0;
-  font-family: 'Montserrat', sans-serif;
-  color: #e34fe3;
+  margin: 15px 0 5px 0;  color: $form-color;
+  text-transform: capitalize;
 }
 
 input {
-  font-size: 16px;
-  height: 30px;
-  padding: 5px;
-  width: 200px;
   display: block;
-
+  font-size: 16px;
+  padding: 5px;
+  @include container-sizing(30px, 200px);
   &:focus {
     outline: none;
   }
@@ -55,16 +45,12 @@ input {
   border: none;
   background: url('./images/cancel.png');
   background-size: cover;
-  width: 25px;
-  height: 25px;
   display: block;
   margin: 0 0 0 auto;
-  font-family: 'Montserrat', sans-serif;
-
+  @include container-sizing(25px, 25px);
   &:focus {
     outline: none;
   }
-
   &:hover {
     background: url('./images/cancel-purple.png');
     background-size: cover;
@@ -78,31 +64,23 @@ input {
   margin-top: 15px;
   max-width: 200px;
   padding: 5px;
-
   &:hover {
-    background-color: #e34fe3;
+    background-color: $form-color;
   }
 }
 
 .sign-up-login-link {
   margin-top: 10px;
-  color: white;
+  color: $main-text-color;
   text-align: center;
   text-decoration: none;
   display: block;
-  font-family: 'Montserrat', sans-serif;
-
   &:hover {
-    color: #e34fe3;
+    color: $form-color;
   }
 }
 
 .response {
-  color: #e34fe3;
+  color: $form-color;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.form-title {
-  font-family: 'Montserrat', sans-serif;
 }
