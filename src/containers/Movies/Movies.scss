@@ -5,4 +5,28 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: space-between;
   grid-gap: 20px;
+  padding-top: 70px;
+}
+
+.faves-login {
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login {
+  text-decoration: none;
+  color: lightskyblue;
+  font-family: 'Montserrat', sans-serif;
+  &:hover {
+    color: purple;
+  }
+}
+
+.no-faves {
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
 }

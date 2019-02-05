@@ -9,7 +9,8 @@
 }
 
 .login-div {
-  background-color: white;
+  background-color: #4a4a4a;
+  color: white;
   position: fixed;
   margin: 10px auto;
   width: 325px;
@@ -34,6 +35,8 @@ label {
   text-transform: capitalize;
   display: block;
   margin: 15px 0 5px 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #e34fe3;
 }
 
 input {
@@ -56,6 +59,7 @@ input {
   height: 25px;
   display: block;
   margin: 0 0 0 auto;
+  font-family: 'Montserrat', sans-serif;
 
   &:focus {
     outline: none;
@@ -76,23 +80,29 @@ input {
   padding: 5px;
 
   &:hover {
-    background-color: lightblue;
+    background-color: #e34fe3;
   }
 }
 
 .sign-up-login-link {
   margin-top: 10px;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
   display: block;
+  font-family: 'Montserrat', sans-serif;
 
   &:hover {
-    color: purple;
+    color: #e34fe3;
   }
 }
 
 .response {
-  color: purple;
+  color: #e34fe3;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-title {
+  font-family: 'Montserrat', sans-serif;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,7 @@ export class Movies extends Component {
         <div id='movie-container'>
           {
             favorites.length ? favorites.map(movie => <Movie {...movie} key={movie.id} />) :
-            <h4>No favorites to show</h4>
+            <h4 className='no-faves'>No favorites to show... why not favorite some movies?</h4>
           }
         </div>
       )
@@ -22,7 +22,7 @@ export class Movies extends Component {
         <div id='movie-container'>
         {
           location.pathname.includes('favorites') ?
-          <Redirect to='/login' /> :
+          <h4 className='faves-login'>Please <Link className='login' to='/login'>LOG IN </Link>to view favorites</h4> :
           movies.map(movie => <Movie {...movie} location={location} key={movie.id} />)
         }
         </div>
@@ -39,7 +39,6 @@ Movies.propTypes = {
 
 Movies.defaultProps = {
   movies: [{}],
-  favorites: [{}],
   location: {},
 }
 

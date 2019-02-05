@@ -65,6 +65,7 @@ export class Login extends Component {
               <button className='home-link'></button>
             </Link>
             <form autoComplete='off' onSubmit={this.handleSubmit} ref={(el) => this.formRef = el}>
+              <h4 className='form-title'>Please sign in</h4>
               {inputFields}
               <input className='submit-button' type="submit"/>
             </form>

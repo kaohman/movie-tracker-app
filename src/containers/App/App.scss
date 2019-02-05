@@ -9,14 +9,23 @@ body {
   margin: 0;
   padding: 0;
   background-color: #1e1e1e;
+  background-image: url('./images/main-bg.jpg');
+  background-size: 1440px 100vh;
+  background-attachment: fixed;
 }
 
 header {
   color: white;
-  padding: 40px 6% 10px 6%;
+  padding: 40px 6% 20px 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+h1  {
+  font-family: 'Righteous', cursive;
+  text-transform: uppercase;
+  font-size: 50px;
 }
 
 .nav-links {
@@ -24,15 +33,18 @@ header {
   font-size: 20px;
   margin: 10px;
   text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 2px;
 
   &:hover {
     color: purple;
+    background-color: white;
+    opacity: .6;
+    border-radius: 15px;
+    padding: 0 2px;
+    box-shadow: 0px 0px 15px 15px white;
   }
 }
-
-// .selected {
-//   color: hotpink;
-// }
 
 #sign-out-button {
   font-size: 20px;
@@ -54,4 +66,34 @@ header {
   background: none;
   color: purple;
   margin-right: 20px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-bar {
+  padding-right: 30px;
+}
+
+.header-bg {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 25px;
+  font-size: 4rem;
+  margin: 0;
+  height: 150px;
+  width: 100vw;
+  background: linear-gradient(166deg, #660677 5%, #a334b6 17%, #b460c2 21%, #d8a6e1 32%, #e8b5f1 40%, rgba(125, 185, 232, 0) 53%);
+}
+
+.header-bg:after {
+  content: '';
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0;
+  z-index: -1;
+  height: 150px;
+  width: 100vw;
+  background: linear-gradient(346deg, #660677 7%, #a334b6 19%, #b460c2 26%, rgba(216, 166, 225, 0.8) 32%, rgba(232, 181, 241, 0.7) 39%, rgba(125, 185, 232, 0) 54%);
 }

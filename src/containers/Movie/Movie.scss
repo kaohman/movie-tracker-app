@@ -1,19 +1,32 @@
 .movie-card {
-  margin: 0;
+  margin: 0 auto;
   height: 450px;
   width: 300px;
+  position: relative;
+  top: -32px;
+  
+  &:hover {
+    box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.8);
+  }
 }
 
 .movie-image {
+    position: relative;
+    top: -32px;
   width: 300px;
 }
 
+.placeholder {
+  margin-top: 32px;
+}
+
 .favorite-icon {
+  z-index: 2;
   border: none;
   background: url('./images/star-outline.png');
   background-size: cover;
   position: relative;
-  top: 40px;
+  top: 10px;
   right: -260px;
   width: 30px;
   height: 30px;
