@@ -15,7 +15,15 @@ Run ```npm start``` and visit localhost:3001 in your browser
 This is a Movie Tracker app where users can view popular movies and sign-in to track their favorites. This project was our first app using Redux, React Router, and making fetch calls to a Postgres database. View original assigment [here](https://github.com/turingschool-examples/movie-tracker).
 
 #### Screenshots
-...images....
+##### Overall page:
+![vid1](https://user-images.githubusercontent.com/39391585/52348088-b3f37200-29e0-11e9-98bc-4117996a01b9.gif)
+
+##### User sign up:
+![vid3](https://user-images.githubusercontent.com/39391585/52346726-7d682800-29dd-11e9-8cbf-bef33d921564.gif)
+
+##### User login and favorites:
+![vid2](https://user-images.githubusercontent.com/39391585/52346723-7c36fb00-29dd-11e9-90ca-6320e7ddc251.gif)
+
 
 ### Primary Technologies Used
 - ReactJS
