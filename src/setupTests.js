@@ -22,8 +22,8 @@ class LocalStorage {
         this.store[string] ? true : false;
     }
 
-    clear() {
-        this.store = {};
+    removeItem(key) {
+        return this.store[key];
     }
 }
 

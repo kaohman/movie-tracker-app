@@ -19,7 +19,6 @@ class SignUp extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     let message;
-    this.validateEmail(this.state.user.email)
     try {
       const response = await API.postData(this.state.user, '/new');
       message = `${response.message}. Please log in.`
@@ -37,14 +36,6 @@ class SignUp extends Component {
     })
   }
 
-  validateEmail = (email) => {
-    // one @ symbol,
-    //  at least one . after @ symbol
-    //  . cannot be next to another .
-    // . cannot be at beginning or end of string
-    // let regex = \@
-  }
-
   handleChange = (e) => {
     let { name, value } = e.target;
     if (name === 'email') {
@@ -55,7 +46,7 @@ class SignUp extends Component {
 
   render() {
     const { user, response } = this.state;
-    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange))
+    const inputFields = Object.keys(user).map(field => buildInput(field, this.handleChange));
     return (
       <div className='overlay-div'>
         <div className='login-div'>

@@ -20,27 +20,34 @@ export class Login extends Component {
   }
 
   handleSubmit = async (e) => {
-    const { errorToDisplay, setCurrentUser } = this.props
+    const { errorToDisplay, setCurrentUser, user } = this.props;
     e.preventDefault();
 
     try {
       const response = await API.postData(this.state.user, '');
-      await setCurrentUser({...response.data, favorites: []});
-      await this.fetchFavorites(this.props.user);
-      await this.setState({isLoggedIn: true})
+      let currentUser = { ...response.data, favorites: [] }
+      await setCurrentUser(currentUser);
+      await this.fetchFavorites(currentUser);
+      await this.setState({isLoggedIn: true});
+      this.addUserToStorage();
     } catch (error) {
-      this.formRef.reset()
-      errorToDisplay(error)
+      this.formRef.reset();
+      errorToDisplay(error);
       await this.setState({
         user: { email: '', password: '' },
         response: 'Email and password do not match or user does not exist'
-      })
+      });
     }
+  }
+
+  addUserToStorage = () => {
+    localStorage.setItem('movie-user', JSON.stringify(this.props.user));
   }
 
   fetchFavorites = async (user) => {
     try {
       const results = await API.getData(`http://localhost:3000/api/users/${user.id}/favorites`);
+      console.log(results.data)
       this.props.setUserFavorites(results.data);
     } catch (error) {
       errorToDisplay(error)

@@ -14,7 +14,25 @@ import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import PropTypes from 'prop-types';
 
 export class App extends Component {
+  signUserOut = () => {
+    this.removeUserFromStorage();
+    this.props.setCurrentUser({});
+  }
+
+  removeUserFromStorage = () => {
+    localStorage.removeItem('movie-user');
+  }
+
+  checkForUser = () => {
+    if (localStorage.hasOwnProperty('movie-user')) {
+      let user = JSON.parse(localStorage.getItem('movie-user'));
+      console.log(user)
+      this.props.setCurrentUser(user);
+    }
+  }
+
   componentDidMount = async () => {
+    this.checkForUser();
     const { errorToDisplay, setMovies, isLoading } = this.props;
     const initialCategory = 'popular';
     const root = `https://api.themoviedb.org/3/movie/${initialCategory}`;
@@ -29,7 +47,7 @@ export class App extends Component {
   }
 
   render() {
-    const { loading, user, setCurrentUser, movies, history, location } = this.props;
+    const { loading, user, movies, history, location } = this.props;
     if (loading) {
       return (<h1>Loading Movies...</h1>)
     } else {
@@ -45,7 +63,7 @@ export class App extends Component {
               <NavLink activeClassName='selected' className='nav-links' to='/favorites'>Favorites</NavLink>
               {
                 user.name ?
-                  <button className='nav-links' id='sign-out-button' onClick={() => setCurrentUser({})}>Sign Out</button> :
+                  <button className='nav-links' id='sign-out-button' onClick={this.signUserOut}>Sign Out</button> :
                   <NavLink className='nav-links' to="/login">User Login</NavLink>
               }
             </div>
