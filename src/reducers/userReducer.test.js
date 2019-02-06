@@ -14,9 +14,21 @@ describe('userReducer', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return state with a toggled favorite', () => {
-    const expected = [1, 2, 4, 3];
-    const result = userReducer([1, 2, 4], actions.setCurrentUser(expected));
+  it('should return state with an added favorite', () => {
+    const expected = { favorites: [{ movie_id: 1 }, { movie_id: 2 }, { movie_id: 3 }] };
+    const result = userReducer({favorites: [{movie_id: 1}, {movie_id:2}]}, actions.toggleFavorite({movie_id: 3}));
+    expect(result).toEqual(expected);
+  });
+
+  it('should return state with a removed favorite', () => {
+    const expected = {favorites: [{ movie_id: 2 }]};
+    const result = userReducer({ favorites: [{ movie_id: 1 }, { movie_id: 2 }] }, actions.toggleFavorite({ movie_id: 1 }));
+    expect(result).toEqual(expected);
+  });
+
+  it('should return state with user favorites', () => {
+    const expected = { favorites: [{id: 1}, {id: 2}] };
+    const result = userReducer(undefined, actions.setUserFavorites(expected.favorites));
     expect(result).toEqual(expected);
   });
 });

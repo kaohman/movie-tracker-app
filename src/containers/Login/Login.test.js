@@ -61,7 +61,7 @@ describe('Login', () => {
       })
       const expected = false;
 
-      await wrapper.instance().handleSubmit(mockPreventDefault)
+      await wrapper.instance().handleSubmit(mockPreventDefault);
 
       expect(wrapper.state('isLoggedIn')).toEqual(expected)
       
@@ -81,6 +81,12 @@ describe('Login', () => {
 
       expect(wrapper.state('isLoggedIn')).toEqual(expected)
     })
+
+    it('should call addUserToStorage', async () => {
+      wrapper.instance().addUserToStorage = jest.fn();
+      await wrapper.instance().handleSubmit(mockPreventDefault);
+      expect(wrapper.instance().addUserToStorage).toHaveBeenCalled();
+    });
 
     it.skip('should call handleSubmit when form is submitted', () => {
       wrapper.setState({

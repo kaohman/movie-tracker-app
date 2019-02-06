@@ -55,6 +55,12 @@ describe('App', () => {
       />);
     });
 
+    it('should call checkForUser', async () => {
+      wrapper.instance().checkForUser = jest.fn();
+      await wrapper.instance().componentDidMount();
+      expect(wrapper.instance().checkForUser).toHaveBeenCalled();
+    });
+
     it('should call getData with the correct parameters', async () => {
       const expected = `https://api.themoviedb.org/3/movie/popular?page=1&api_key=${apiKey}&language=en-US`;
       await wrapper.instance().componentDidMount();
@@ -75,12 +81,57 @@ describe('App', () => {
 
     it('should call errorToDisplay with the correct parameters', async () => {
       API.getData = jest.fn().mockImplementation(() => Promise.reject({
-          status: 401,
           ok: false
       }));
-      const expected = { ok: false, status: 401 };
+      const expected = { ok: false };
       await wrapper.instance().componentDidMount();
       expect(mockError).toHaveBeenCalledWith(expected);
+    });
+  });
+
+  describe('signOutUser', () => {
+    let wrapper;
+    let mockSetUser;
+
+    beforeEach(() => {
+      mockSetUser = jest.fn();
+      wrapper = shallow(
+        <App
+          setCurrentUser={mockSetUser}
+        />);
+    });
+
+    it('should call removeUserFromStorage', () => {
+      wrapper.instance().removeUserFromStorage = jest.fn();
+      wrapper.instance().signUserOut();
+      expect(mockSetUser).toHaveBeenCalled();
+    });
+
+    it('should call setCurrentUser', () => {
+      wrapper.instance().signUserOut();
+      expect(mockSetUser).toHaveBeenCalled();
+    });
+  });
+
+  describe('checkForUser', () => {
+    let wrapper;
+    let mockUser;
+    let mockSetUser;
+
+    beforeEach(() => {
+      mockSetUser = jest.fn();
+      mockUser = { name: 'Tommy', email: 'a@a', id: 1, password: 'password', favorites: [] };
+      wrapper = shallow(
+        <App
+          setCurrentUser={mockSetUser}
+        />);
+    });
+
+    it('should call setCurrentUser with the correct params', () => {
+      localStorage.setItem('movie-user', JSON.stringify(mockUser));
+      const expected = mockUser;
+      wrapper.instance().checkForUser();
+      expect(mockSetUser).toHaveBeenCalledWith(expected);
     });
   });
 

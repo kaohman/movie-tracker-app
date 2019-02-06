@@ -26,11 +26,10 @@ export class App extends Component {
   checkForUser = () => {
     if (localStorage.hasOwnProperty('movie-user')) {
       let user = JSON.parse(localStorage.getItem('movie-user'));
-      console.log(user)
       this.props.setCurrentUser(user);
     }
   }
-
+s
   componentDidMount = async () => {
     this.checkForUser();
     const { errorToDisplay, setMovies, isLoading } = this.props;
