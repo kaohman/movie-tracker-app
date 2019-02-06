@@ -81,3 +81,89 @@ h1  {
 .selected {
   font-weight: 800;
 }
+
+@media only screen and (max-width: 1045px) {
+  h1 {
+    display: block;
+    margin: 0;
+  }
+
+  .nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links {
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .movie-details-div, .movies-overlay-div, .movie-backdrop, .movies-text-div, #overview-text {
+    width: 95%;
+  }
+  .movies-div-overlay {
+    height: 500px;
+  }
+  #title-text {
+    margin-top: -20px;
+  }
+  #overview-text {
+    width: 100%;
+  }
+  .movie-text-div {
+    height: 100%;
+    top: 60%;
+  }
+
+  .movie-details-div {
+    margin: auto;
+    top: 13%;
+    left: 2%;
+    background-color: black;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+
+  .movie-text-div {
+    height: 100%;
+    top: 26%;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: -75px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  #movie-container {
+    padding-top: 155px ;
+  }
+
+  .header-bg {
+    // position: relative;
+    top: -50px;
+    padding: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #660677 5%, #a334b6 17%, #b460c2 21%, #d8a6e1 32%, #e8b5f1 40%, rgba(125, 185, 232, 0) 53%);
+  }
+  .header-bg:after {
+    padding: 0;
+    width: 100%; 
+    background: linear-gradient(0deg, #660677 5%, #a334b6 17%, #b460c2 21%, #d8a6e1 32%, #e8b5f1 40%, rgba(125, 185, 232, 0) 53%);
+  }
+}
