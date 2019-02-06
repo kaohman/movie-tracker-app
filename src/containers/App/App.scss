@@ -111,15 +111,19 @@ h1  {
   .movie-details-div, .movies-overlay-div, .movie-backdrop, .movies-text-div, #overview-text {
     width: 95%;
   }
+  
   .movies-div-overlay {
     height: 500px;
   }
+
   #title-text {
     margin-top: -20px;
   }
+
   #overview-text {
     width: 100%;
   }
+
   .movie-text-div {
     height: 100%;
     top: 60%;
@@ -155,7 +159,6 @@ h1  {
   }
 
   .header-bg {
-    // position: relative;
     top: -50px;
     padding: 0;
     width: 100%;
