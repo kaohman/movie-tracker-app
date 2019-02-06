@@ -79,11 +79,16 @@ ShallowWrapper {
         <Switch>
           <Route
             component={[Function]}
+            exact={true}
             path="/"
           />
           <Route
             path="/favorites"
             render={[Function]}
+          />
+          <Route
+            component={[Function]}
+            path="*"
           />
         </Switch>,
         <Route
@@ -280,11 +285,16 @@ ShallowWrapper {
           "children": Array [
             <Route
               component={[Function]}
+              exact={true}
               path="/"
             />,
             <Route
               path="/favorites"
               render={[Function]}
+            />,
+            <Route
+              component={[Function]}
+              path="*"
             />,
           ],
         },
@@ -296,6 +306,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "component": [Function],
+              "exact": true,
               "path": "/",
             },
             "ref": null,
@@ -309,6 +320,18 @@ ShallowWrapper {
             "props": Object {
               "path": "/favorites",
               "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "*",
             },
             "ref": null,
             "rendered": null,
@@ -407,11 +430,16 @@ ShallowWrapper {
           <Switch>
             <Route
               component={[Function]}
+              exact={true}
               path="/"
             />
             <Route
               path="/favorites"
               render={[Function]}
+            />
+            <Route
+              component={[Function]}
+              path="*"
             />
           </Switch>,
           <Route
@@ -608,11 +636,16 @@ ShallowWrapper {
             "children": Array [
               <Route
                 component={[Function]}
+                exact={true}
                 path="/"
               />,
               <Route
                 path="/favorites"
                 render={[Function]}
+              />,
+              <Route
+                component={[Function]}
+                path="*"
               />,
             ],
           },
@@ -624,6 +657,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "component": [Function],
+                "exact": true,
                 "path": "/",
               },
               "ref": null,
@@ -637,6 +671,18 @@ ShallowWrapper {
               "props": Object {
                 "path": "/favorites",
                 "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "path": "*",
               },
               "ref": null,
               "rendered": null,

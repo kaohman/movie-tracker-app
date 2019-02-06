@@ -4,7 +4,8 @@ import MovieDetails from './MovieDetails'
 
 describe('MovieDetails', () => {
   let wrapper;
-  let mockMovie
+  let mockMovie;
+  let mockHistory;
 
   beforeEach(() => {
     mockMovie = { 
@@ -14,9 +15,11 @@ describe('MovieDetails', () => {
       vote_average: 6.9,
       backdrop_path: 'url/suffix/'
     }
+    mockHistory = jest.fn();
     wrapper = shallow(
       <MovieDetails
         {...mockMovie}
+        history={mockHistory}
       />
     );
   });
